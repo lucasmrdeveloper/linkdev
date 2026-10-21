@@ -2,6 +2,8 @@ import Aba from "./Aba.tsx"
 
 import SidebarHeader from "./SidebarHeader.tsx"
 
+import Perfil from "../../features/perfil/Perfil.tsx"
+
 import "./Sidebar.css"
 
 const Sidebar = () => {
@@ -12,7 +14,7 @@ const Sidebar = () => {
             <div className="linhas">
                 <div>
                     <Aba titulo="Perfil" icone="/usuario.svg">
-                        <div>Conteudo</div>
+                        <Perfil />
                     </Aba>
                     
  
