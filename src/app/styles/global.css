@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+main{
+    display: flex;
+    background-color: #F2F3F5;
+}
+
+p{
+    line-height: 1.5;
+}
+
+input:focus,
+textarea:focus{
+    outline: 2px solid #5039F6;
+}
+
+ul{
+    display: flex;
+    gap: 10px;
+}
+ul li{
+    color: #fff;
+    list-style: none;
+} 
