@@ -1,11 +1,13 @@
 import Aba from "./Aba.tsx"
 
+import SidebarHeader from "./SidebarHeader.tsx"
+
 import "./Sidebar.css"
 
 const Sidebar = () => {
     return(
         <aside className="sidebar">
-            
+            <SidebarHeader />
 
             <div className="linhas">
                 <div>
