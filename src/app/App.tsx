@@ -1,8 +1,12 @@
+import Sidebar from "../shared/components/Sidebar"
+
 function App() {
   
   return (
     <>
-      <h1>Linkdev</h1>
+      <main>
+        <Sidebar />
+      </main>
     </>
   )
 }
