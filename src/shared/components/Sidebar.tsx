@@ -1,5 +1,6 @@
 import Aba from "./Aba.tsx"
 
+import "./Sidebar.css"
 
 const Sidebar = () => {
     return(

@@ -1,0 +1,67 @@
+.sidebar{
+    height: 100vh;
+    background-color: #FFFFFF;
+    
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    
+
+    .linhas{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        overflow: auto;
+    }
+}
+
+.header{
+    background-color: #5039F6;
+    padding: 20px;
+   
+    h1, p{
+        color: #fff;
+    }
+}
+
+.projeto{
+    padding: 20px;
+    border-radius: 8px;
+    background-color: aliceblue;
+
+    input{
+        border: none;
+        background-color: transparent;
+        padding: 0;
+    }
+}
+
+
+ul{
+    gap: 10px;
+}
+
+
+
+.toast {
+    position: fixed;
+    right: 1rem;
+    background-color: green;
+    left: 20px;
+    bottom: 10px;
+    padding: 0.75rem 1rem;
+    color: white;
+    width: 300px;
+    border-radius: 4px;
+}
+
+.toast-sucesso{
+    background-color: #287a4b;
+}
+
+.toast-erro{
+    background-color: #b42318;
+}
