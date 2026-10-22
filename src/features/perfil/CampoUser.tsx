@@ -1,12 +1,6 @@
 import { useHandleChange } from "./hook/useHandleChange"
 import "../../shared/styles/forms.css"
-
-export type CampoUserProps = {
-    label: string
-    placeholder: string
-    campo: "nome" | "especialidade" | "localidade" | "biografia"
-    tipo?: "text" | "textarea"
-}
+import { type CampoUserProps } from "./types/CampoUserProps"
 
 const CampoUser = ({ label, placeholder, campo, tipo }: CampoUserProps ) => {
    
