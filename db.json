@@ -1,0 +1,12 @@
+{
+    "perfil": {
+        "nome": "Seu Nome",
+        "especialidade": "Sua Especialidade",
+        "biografia": "Fale um pouco mais sobre você, trabalhos e experiência.",
+        "localidade": "Cidade, Estado",
+        "habilidades": [
+        "Javascript",
+        "React"
+        ]
+    }
+}
