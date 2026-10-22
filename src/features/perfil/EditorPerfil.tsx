@@ -1,4 +1,4 @@
-import CampoUser from "./CampoUser"
+import CampoUser, { type CampoUserProps } from "./CampoUser"
 
 const camposPerfil = [
     {
@@ -22,7 +22,7 @@ const camposPerfil = [
         placeholder: "Fale sobre você...",
         campo: "biografia"
     }
-]
+] satisfies CampoUserProps[]
 
 const EditorPerfil = () => {
     return (

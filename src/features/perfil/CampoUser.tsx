@@ -1,14 +1,14 @@
 import { useHandleChange } from "./hook/useHandleChange"
 import "../../shared/styles/forms.css"
 
-type CompoUserProps = {
+export type CampoUserProps = {
     label: string
     placeholder: string
     campo: "nome" | "especialidade" | "localidade" | "biografia"
     tipo?: "text" | "textarea"
 }
 
-const CampoUser = ({ label, placeholder, campo, tipo }: CompoUserProps ) => {
+const CampoUser = ({ label, placeholder, campo, tipo }: CampoUserProps ) => {
    
     const { perfil, handleChange } = useHandleChange(campo)
 
