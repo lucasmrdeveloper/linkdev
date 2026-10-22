@@ -1,6 +1,6 @@
-import { useHandleChange } from "./hook/useHandleChange"
-import "../../shared/styles/forms.css"
-import { type CampoUserProps } from "./types/CampoUserProps"
+import { useHandleChange } from "../hook/useHandleChange"
+import "../../../shared/styles/forms.css"
+import { type CampoUserProps } from "../types/CampoUserProps"
 
 const CampoUser = ({ label, placeholder, campo, tipo }: CampoUserProps ) => {
    

@@ -1,5 +1,5 @@
 import EditorPerfil from "./EditorPerfil"
-import { useBuscarPerfil } from "./hook/useBuscarPerfil"
+import { useBuscarPerfil } from "../hook/useBuscarPerfil"
 
 const Perfil = () => {
     useBuscarPerfil()

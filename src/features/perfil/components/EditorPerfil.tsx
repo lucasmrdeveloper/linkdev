@@ -1,5 +1,5 @@
 import CampoUser from "./CampoUser"
-import { type CampoUserProps } from "./types/CampoUserProps"
+import { type CampoUserProps } from "../types/CampoUserProps"
 
 const camposPerfil = [
     {
