@@ -1,6 +1,7 @@
 import { useContext, type ChangeEvent } from "react"
 import { PerfilRascunhoContext } from "../../shared/contexts/perfilRascunhoContext"
 
+import "../../shared/styles/forms.css"
 
 type CompoUserProps = {
     label: string
