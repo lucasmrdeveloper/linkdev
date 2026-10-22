@@ -1,6 +1,4 @@
-import { useContext, type ChangeEvent } from "react"
-import { PerfilRascunhoContext } from "../../shared/contexts/perfilRascunhoContext"
-
+import { useHandleChange } from "./hook/useHandleChange"
 import "../../shared/styles/forms.css"
 
 type CompoUserProps = {
@@ -11,23 +9,8 @@ type CompoUserProps = {
 }
 
 const CampoUser = ({ label, placeholder, campo, tipo }: CompoUserProps ) => {
-    const contexto = useContext(PerfilRascunhoContext)
-
-    if (!contexto) {
-        throw new Error("CampoUser deve estar dentro de PerfilContext.Provider")
-    }
-
-    const { perfil, setPerfil } = contexto
-    
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { value } = e.target
-
-        setPerfil(prevPerfil => ({
-            ...prevPerfil,
-            [campo]: value
-        })) 
-    } 
+   
+    const { perfil, handleChange } = useHandleChange(campo)
 
     return(
         <div className="campo"> 
