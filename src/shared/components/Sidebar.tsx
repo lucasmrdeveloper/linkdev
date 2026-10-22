@@ -1,6 +1,7 @@
 import Aba from "./Aba.tsx"
 
 import SidebarHeader from "./SidebarHeader.tsx"
+import SidebarButton from "./SidebarButton.tsx"
 
 import Perfil from "../../features/perfil/Perfil.tsx"
 
@@ -21,6 +22,7 @@ const Sidebar = () => {
                 </div>
             </div>
 
+            <SidebarButton />
         </aside>
     )
 } 
