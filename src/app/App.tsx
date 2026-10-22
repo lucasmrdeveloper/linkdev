@@ -2,27 +2,24 @@ import Sidebar from "../shared/components/Sidebar"
 
 import { useState } from "react"
 
-import { PerfilContext, type Perfil } from "../shared/contexts/perfilContext"
+import { PerfilRascunhoContext, type Perfil } from "../shared/contexts/perfilRascunhoContext"
 
 import "./styles/global.css"
 
 function App() {
   
-
   const [ perfil, setPerfil ] = useState<Perfil>({
     nome: "",
     especialidade: "",
     localidade: "",
-    biografia: "",
-    habilidades: [],
-    projetos: []
+    biografia: ""
   })
   
   return (
     <main>
-        <PerfilContext value={{perfil, setPerfil}}>
+        <PerfilRascunhoContext value={{perfil, setPerfil}}>
           <Sidebar />
-        </PerfilContext>
+        </PerfilRascunhoContext>
     </main>
   )
 }

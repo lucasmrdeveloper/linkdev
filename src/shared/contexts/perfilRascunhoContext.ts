@@ -1,17 +1,17 @@
 import { createContext, type Dispatch, type SetStateAction } from "react";
 
-export type PerfilRascunho = {
+export type Perfil = {
     nome: string
     especialidade: string
     localidade: string
     biografia: string
-    habilidades: string[]
-    projetos: string[]
 }
 
-type PerfilRascunhoContextValue = {
-    perfilRascunho: PerfilRascunho,
-    setPerfil: Dispatch<SetStateAction<PerfilRascunho>>
+type PerfilRascunhoContextType = {
+    perfil: Perfil,
+    setPerfil: Dispatch<SetStateAction<Perfil>>
 }
 
-export const PerfilRascunhoContext = createContext<PerfilRascunhoContextValue | null>(null)
+export const PerfilRascunhoContext = createContext<PerfilRascunhoContextType | null>(null)
+
+
