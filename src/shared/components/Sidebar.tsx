@@ -6,8 +6,11 @@ import SidebarButton from "./SidebarButton.tsx"
 import Perfil from "../../features/perfil/components/Perfil.tsx"
 
 import "./Sidebar.css"
+import { useBuscarPerfil } from "../../features/perfil/hook/useBuscarPerfil.ts"
 
 const Sidebar = () => {
+    useBuscarPerfil()
+
     return(
         <aside className="sidebar">
             <SidebarHeader />
