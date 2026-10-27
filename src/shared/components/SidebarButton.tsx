@@ -8,6 +8,8 @@ import { useContext, useState } from "react"
 // Context
 import { PerfilRascunhoContext } from "../contexts/perfilRascunhoContext"
 
+import { editarPerfil } from "../../features/perfil/services/perfilServices"
+
 const SidebarButton = () => {
     const contexto = useContext(PerfilRascunhoContext)
 
@@ -18,15 +20,12 @@ const SidebarButton = () => {
     const { perfil } = contexto
 
     const handleSalvar = async () => {
-        console.log("===== Botão de Salvar =====")
-        console.log("PerfilRascunho", perfil)
-        
-       /*  try {
-            await salvar(perfil)
+        try {
+            await editarPerfil(perfil)
         }
         catch (error) {
             throw new Error("Houve um erro ao salvar")
-        } */
+        }
     }
 
     return (
