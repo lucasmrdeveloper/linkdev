@@ -4,9 +4,11 @@ import SidebarHeader from "./SidebarHeader.tsx"
 import SidebarButton from "./SidebarButton.tsx"
 
 import Perfil from "../../features/perfil/components/Perfil.tsx"
+import Habilidades from "../../features/habilidades/components/Habilidades.tsx"
 
 import "./Sidebar.css"
 import { useBuscarPerfil } from "../../features/perfil/hook/useBuscarPerfil.ts"
+
 
 const Sidebar = () => {
     useBuscarPerfil()
@@ -19,6 +21,10 @@ const Sidebar = () => {
                 <div>
                     <Aba titulo="Perfil" icone="/usuario.svg">
                         <Perfil />
+                    </Aba>
+
+                     <Aba titulo="Habilidades" icone="/skills.svg">
+                        <Habilidades />
                     </Aba>
                     
  
