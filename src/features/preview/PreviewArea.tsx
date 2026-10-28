@@ -1,16 +1,20 @@
 import"./PreviewArea.css"
 
 import { PerfilRascunhoContext} from "../../shared/contexts/perfilRascunhoContext"
+import { HabilidadesRascunhoContext } from "../../shared/contexts/habilidadesRascunhoContext"
+
 import { useContext } from "react"
 
 const PreviewArea = () => {
     const perfilContexto = useContext(PerfilRascunhoContext)
+    const habilidadesContexto = useContext(HabilidadesRascunhoContext)
     
-    if (!perfilContexto) {
+    if (!perfilContexto || !habilidadesContexto) {
         throw new Error("Contexto não existe")
     }
 
     const { perfil } = perfilContexto
+    const { habilidadesRascunho } = habilidadesContexto
     
     const {
         nome,
@@ -36,6 +40,13 @@ const PreviewArea = () => {
                 </div>
 
                 <p className="preview-biografia">{biografia}</p>
+
+                <ul className="preview-habilidades">
+                    {habilidadesRascunho && (habilidadesRascunho.map(habilidade => (
+                        <li className="preview-habilidade">{habilidade}</li>
+                    )))} 
+                </ul> 
+
             </div>
         </div>
       
