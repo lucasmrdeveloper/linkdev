@@ -6,9 +6,21 @@
         "localidade": "Cidade, Estado"
     },
     "habilidades": [
-      "Javascript",
-      "React",
-      "Typescript",
-      "Git"
+        {
+            "id": "1",
+            "nome": "Javascript"
+        },
+        {
+            "id": "2",
+            "nome": "React"
+        },
+        {
+            "id": "3",
+            "nome": "Typescript"
+        },
+        {
+            "id": "4",
+            "nome": "Git"
+        }
     ]
 }
