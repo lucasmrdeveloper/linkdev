@@ -4,13 +4,13 @@ import { PerfilRascunhoContext} from "../../shared/contexts/perfilRascunhoContex
 import { useContext } from "react"
 
 const PreviewArea = () => {
-    const contexto = useContext(PerfilRascunhoContext)
+    const perfilContexto = useContext(PerfilRascunhoContext)
     
-    if (!contexto) {
+    if (!perfilContexto) {
         throw new Error("Contexto não existe")
     }
 
-    const { perfil } = contexto
+    const { perfil } = perfilContexto
     
     const {
         nome,
