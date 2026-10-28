@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react"
+import { useState, type SubmitEvent } from "react"
 
 import "./FormularioHabilidade.css"
 
@@ -16,7 +16,7 @@ const FormularioHabilidade = () => {
 
     const { setHabilidadesRascunho } = contexto
 
-    const handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {      
+    const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {      
         e.preventDefault()
 
         setHabilidadesRascunho(atual => [
