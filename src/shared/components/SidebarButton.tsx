@@ -11,14 +11,14 @@ import { PerfilRascunhoContext } from "../contexts/perfilRascunhoContext"
 import { editarPerfil } from "../../features/perfil/services/perfilServices"
 
 const SidebarButton = () => {
-    const contexto = useContext(PerfilRascunhoContext)
-
-    if (!contexto) {
+    const perfilContexto = useContext(PerfilRascunhoContext)
+    
+    if (!perfilContexto) {
         throw new Error("PerfilRascunhoContext não está disponível")
     }
-
-    const { perfil } = contexto
-
+    
+    const { perfil } = perfilContexto
+    
     const handleSalvar = async () => {
         try {
             await editarPerfil(perfil)
