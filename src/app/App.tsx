@@ -3,7 +3,7 @@ import Sidebar from "../shared/components/Sidebar"
 import { useState } from "react"
 
 import { PerfilRascunhoContext, type Perfil } from "../shared/contexts/perfilRascunhoContext"
-import { HabilidadesRascunhoContext } from "../shared/contexts/habilidadesRascunhoContext"
+import { HabilidadesRascunhoContext, type Habilidade } from "../shared/contexts/habilidadesRascunhoContext"
 
 import PreviewArea from "../features/preview/PreviewArea"
 
@@ -18,7 +18,7 @@ function App() {
     biografia: ""
   })
 
-  const [ habilidadesRascunho, setHabilidadesRascunho ] = useState<string[]>([])
+  const [ habilidadesRascunho, setHabilidadesRascunho ] = useState<Habilidade[]>([])
     
   
   return (
