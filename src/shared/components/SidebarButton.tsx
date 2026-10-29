@@ -7,13 +7,14 @@ import { useContext, useState } from "react"
 
 // Context
 import { PerfilRascunhoContext } from "../contexts/perfilRascunhoContext"
-import { HabilidadesRascunhoContext } from "../contexts/habilidadesRascunhoContext"
+import { HabilidadesNovasContext } from "../contexts/habilidadesNovas"
 
 import { editarPerfil } from "../../features/perfil/services/perfilServices"
+import { criarHabilidade } from "../../features/habilidades/services/habilidadesServices"
 
 const SidebarButton = () => {
     const perfilContexto = useContext(PerfilRascunhoContext)
-    const habilidadesContexto = useContext(HabilidadesRascunhoContext)
+    const habilidadesContexto = useContext(HabilidadesNovasContext)
 
     
     if (!perfilContexto || !habilidadesContexto) {
@@ -21,11 +22,24 @@ const SidebarButton = () => {
     }
     
     const { perfil } = perfilContexto
-    const { habilidadesRascunho } = habilidadesContexto
+    const { habilidadesNovas, setHabilidadesNovas } = habilidadesContexto
     
     const handleSalvar = async () => {
+        
+        console.log("=====Botão Salvar=====")
+        console.log(habilidadesNovas)
+            
         try {
+
             await editarPerfil(perfil)
+
+            for (const habilidade of habilidadesNovas) {
+                await criarHabilidade(habilidade)
+
+                setHabilidadesNovas(atual =>
+                    atual.filter(item => item.id !== habilidade.id)
+                )
+            }
         }
         catch (error) {
             throw new Error("Houve um erro ao salvar")
