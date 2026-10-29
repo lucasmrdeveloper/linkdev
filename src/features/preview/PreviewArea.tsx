@@ -41,11 +41,11 @@ const PreviewArea = () => {
 
                 <p className="preview-biografia">{biografia}</p>
 
-                <ul className="preview-habilidades">
+                 <ul className="preview-habilidades">
                     {habilidadesRascunho && (habilidadesRascunho.map(habilidade => (
-                        <li className="preview-habilidade">{habilidade}</li>
+                        <li className="preview-habilidade">{habilidade.nome}</li>
                     )))} 
-                </ul> 
+                </ul>  
 
             </div>
         </div>
