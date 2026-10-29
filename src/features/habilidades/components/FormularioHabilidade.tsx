@@ -1,6 +1,6 @@
 import { useState, type SubmitEvent } from "react"
 
-import "./FormularioHabilidade.css"
+import "./styles/FormularioHabilidade.css"
 
 import { HabilidadesRascunhoContext } from "../../../shared/contexts/habilidadesRascunhoContext"
 import { HabilidadesNovasContext } from "../../../shared/contexts/habilidadesNovas"
