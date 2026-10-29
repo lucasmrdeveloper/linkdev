@@ -14,18 +14,19 @@ const FormularioHabilidade = () => {
         throw new Error("CampoUser deve estar dentro de PerfilContext.Provider")
     }
 
-    const { setHabilidadesRascunho } = contexto
+    const { habilidadesRascunho, setHabilidadesRascunho } = contexto
 
     const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {      
+        console.log(habilidadesRascunho)
+
         e.preventDefault()
 
         setHabilidadesRascunho(atual => [
             ...atual,
-            habilidade
+            { id: crypto.randomUUID(), nome: habilidade }
         ])
         
         setHabilidade("")
-
     }
 
     return(
