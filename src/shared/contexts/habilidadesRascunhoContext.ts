@@ -1,8 +1,13 @@
 import { createContext, type Dispatch, type SetStateAction } from "react";
 
+export type Habilidade = {
+    id: string,
+    nome: string,
+}
+
 type habilidadesRascunhoValue = {
-    habilidadesRascunho: string[],
-    setHabilidadesRascunho: Dispatch<SetStateAction<string[]>>
+    habilidadesRascunho: Habilidade[],
+    setHabilidadesRascunho: Dispatch<SetStateAction<Habilidade[]>>
 }
 
 export const HabilidadesRascunhoContext = createContext<habilidadesRascunhoValue | null>(null)
