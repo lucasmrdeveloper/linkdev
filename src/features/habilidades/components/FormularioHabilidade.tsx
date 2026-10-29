@@ -3,18 +3,21 @@ import { useState, type SubmitEvent } from "react"
 import "./FormularioHabilidade.css"
 
 import { HabilidadesRascunhoContext } from "../../../shared/contexts/habilidadesRascunhoContext"
+import { HabilidadesNovasContext } from "../../../shared/contexts/habilidadesNovas"
 import { useContext } from "react"
 
 const FormularioHabilidade = () => {
     const [ habilidade, setHabilidade ] = useState("")
 
     const contexto = useContext(HabilidadesRascunhoContext)
+    const HabilidadesNovasContexto = useContext(HabilidadesNovasContext)
     
-    if (!contexto) {
+    if (!contexto || !HabilidadesNovasContexto) {
         throw new Error("CampoUser deve estar dentro de PerfilContext.Provider")
     }
 
     const { habilidadesRascunho, setHabilidadesRascunho } = contexto
+    const { setHabilidadesNovas } = HabilidadesNovasContexto
 
     const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {      
         console.log(habilidadesRascunho)
@@ -22,6 +25,11 @@ const FormularioHabilidade = () => {
         e.preventDefault()
 
         setHabilidadesRascunho(atual => [
+            ...atual,
+            { id: crypto.randomUUID(), nome: habilidade }
+        ])
+        
+        setHabilidadesNovas(atual => [
             ...atual,
             { id: crypto.randomUUID(), nome: habilidade }
         ])

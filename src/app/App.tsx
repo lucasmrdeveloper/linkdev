@@ -4,6 +4,7 @@ import { useState } from "react"
 
 import { PerfilRascunhoContext, type Perfil } from "../shared/contexts/perfilRascunhoContext"
 import { HabilidadesRascunhoContext, type Habilidade } from "../shared/contexts/habilidadesRascunhoContext"
+import { HabilidadesNovasContext } from "../shared/contexts/habilidadesNovas"
 
 import PreviewArea from "../features/preview/PreviewArea"
 
@@ -19,14 +20,17 @@ function App() {
   })
 
   const [ habilidadesRascunho, setHabilidadesRascunho ] = useState<Habilidade[]>([])
+  const [ habilidadesNovas, setHabilidadesNovas ] = useState<Habilidade[]>([])
     
   
   return (
     <main>
         <HabilidadesRascunhoContext value={{habilidadesRascunho, setHabilidadesRascunho}}>
           <PerfilRascunhoContext value={{perfil, setPerfil}}>
-            <Sidebar />
-            <PreviewArea />
+            <HabilidadesNovasContext value={{habilidadesNovas, setHabilidadesNovas}}>
+              <Sidebar />
+              <PreviewArea />
+            </HabilidadesNovasContext>
           </PerfilRascunhoContext>
         </HabilidadesRascunhoContext>
     </main>
