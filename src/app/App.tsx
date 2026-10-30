@@ -21,13 +21,15 @@ function App() {
 
   const [ habilidadesRascunho, setHabilidadesRascunho ] = useState<Habilidade[]>([])
   const [ habilidadesNovas, setHabilidadesNovas ] = useState<Habilidade[]>([])
+  const [ habilidadesExcluidas, setHabilidadesExcluidas ] = useState<string[]>([])
+
     
   
   return (
     <main>
         <HabilidadesRascunhoContext value={{habilidadesRascunho, setHabilidadesRascunho}}>
           <PerfilRascunhoContext value={{perfil, setPerfil}}>
-            <HabilidadesNovasContext value={{habilidadesNovas, setHabilidadesNovas}}>
+            <HabilidadesNovasContext value={{habilidadesNovas, setHabilidadesNovas, habilidadesExcluidas, setHabilidadesExcluidas}}>
               <Sidebar />
               <PreviewArea />
             </HabilidadesNovasContext>
