@@ -36,3 +36,15 @@
     margin-bottom: 20px;
 }
     
+.preview-habilidades{
+    display: flex;
+    gap: 8px;
+    margin-bottom: 40px;
+    
+    .preview-habilidade{
+        background-color: transparent !important;
+        border-radius: 20px;
+        font-size: 14px;
+        padding: 5px 15px;
+    }
+}
