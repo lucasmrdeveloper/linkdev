@@ -1,6 +1,6 @@
 import { HabilidadesRascunhoContext } from "../../../shared/contexts/habilidadesRascunhoContext"
 import { useContext } from "react"
-import "./styles/ListaHabilidade.css"
+import "./styles/ListaHabilidades.css"
 
 const ListaHabilidade = () => {
     
