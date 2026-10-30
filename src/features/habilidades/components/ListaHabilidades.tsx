@@ -1,16 +1,8 @@
-import { HabilidadesRascunhoContext } from "../../../shared/contexts/habilidadesRascunhoContext"
-import { useContext } from "react"
+import { useHabilidadesContexto } from "../hooks/useHabilidadesContexto"
 import "./styles/ListaHabilidades.css"
 
 const ListaHabilidade = () => {
-    
-    const contexto = useContext(HabilidadesRascunhoContext)
-    
-    if (!contexto) {
-        throw new Error("CampoUser deve estar dentro de PerfilContext.Provider")
-    }
-
-    const { habilidadesRascunho } = contexto
+    const { habilidadesRascunho } = useHabilidadesContexto()
 
     return(
         <ul className="lista-habilidades">
