@@ -10,6 +10,8 @@ export const useHabilidadesContexto = () => {
         throw new Error("CampoUser deve estar dentro de PerfilContext.Provider")
     }
 
-    const { habilidadesRascunho, setHabilidadesRascunho } = contexto
-    const { setHabilidadesNovas } = HabilidadesNovasContexto
+    return {
+        setHabilidadesRascunho: contexto.setHabilidadesRascunho,
+        setHabilidadesNovas: HabilidadesNovasContexto.setHabilidadesNovas
+    }
 }
