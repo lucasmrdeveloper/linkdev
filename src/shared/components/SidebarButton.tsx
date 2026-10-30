@@ -3,14 +3,14 @@ import "./SidebarButton.css"
 
 // Hooks
 import { useContext, useState } from "react"
-
+ "../contexts/habilidadesNovas"
 
 // Context
 import { PerfilRascunhoContext } from "../contexts/perfilRascunhoContext"
 import { HabilidadesNovasContext } from "../contexts/habilidadesNovas"
 
 import { editarPerfil } from "../../features/perfil/services/perfilServices"
-import { criarHabilidade } from "../../features/habilidades/services/habilidadesServices"
+import { criarHabilidade, excluirHabilidade } from "../../features/habilidades/services/habilidadesServices"
 
 const SidebarButton = () => {
     const perfilContexto = useContext(PerfilRascunhoContext)
@@ -22,16 +22,23 @@ const SidebarButton = () => {
     }
     
     const { perfil } = perfilContexto
-    const { habilidadesNovas, setHabilidadesNovas } = habilidadesContexto
+    const { habilidadesNovas, setHabilidadesNovas, habilidadesExcluidas } = habilidadesContexto
     
     const handleSalvar = async () => {
         
         console.log("=====Botão Salvar=====")
+
+        console.log("habilidadesExcluidas", habilidadesExcluidas)
         console.log(habilidadesNovas)
             
         try {
-
+            await Promise.all(
+                habilidadesExcluidas.map(item => excluirHabilidade(item))
+            )
             await editarPerfil(perfil)
+
+
+
 
             for (const habilidade of habilidadesNovas) {
                 await criarHabilidade(habilidade)
