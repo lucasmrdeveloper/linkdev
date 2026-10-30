@@ -1,8 +1,10 @@
 import { useHabilidadesContexto } from "../hooks/useHabilidadesContexto"
 import "./styles/ListaHabilidades.css"
+import { useExcluirHabilidade } from "../hooks/useExcluirHabilidade"
 
 const ListaHabilidade = () => {
     const { habilidadesRascunho } = useHabilidadesContexto()
+    const handleExcluir = useExcluirHabilidade()
 
     return(
         <ul className="lista-habilidades">
@@ -12,7 +14,8 @@ const ListaHabilidade = () => {
 
                     <img 
                         src="/lixeira.svg" 
-                        alt="Ícone de lixeira" 
+                        alt="Ícone de lixeira"
+                        onClick={() => handleExcluir(habilidade.id)} 
                     />
                 </li>
             )))}
