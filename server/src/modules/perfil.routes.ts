@@ -29,7 +29,7 @@ perfilRoutes.post("/", async (req, res) => {
         })
     }
 
-    const perfil = PerfilModel.create({
+    const perfil = await PerfilModel.create({
         nome,
         especialidade,
         localidade,
