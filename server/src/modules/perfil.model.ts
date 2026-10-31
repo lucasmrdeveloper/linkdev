@@ -8,6 +8,13 @@ type Perfil = {
     biografia: string
 }
 
+export const perfilPadrao: Perfil = {
+    nome: "Seu Nome",
+    especialidade: "Sua Especialidade",
+    biografia: "Fale um pouco mais sobre você, trabalhos e experiência.",
+    localidade: "Cidade, Estado"
+}
+
 const perfilSchema = new Schema<Perfil>({
     nome: { 
         type: String,
