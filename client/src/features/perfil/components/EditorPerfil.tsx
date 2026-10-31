@@ -9,12 +9,12 @@ const camposPerfil = [
     },
     {
         label: "Especialidade",
-        placeholder: "Desenvolvedor Front-end",
+        placeholder: "Digite sua especialidade",
         campo: "especialidade"
     },
     {
         label: "Localização",
-        placeholder: "São Paulo, BR",
+        placeholder: "Cidade, Estado",
         campo: "localidade"
     },
     {
