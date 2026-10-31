@@ -1,5 +1,5 @@
-import CampoUser from "./CampoUser"
-import { type CampoUserProps } from "../types/CampoUserProps"
+import CampoPerfil from "./CampoPerfil"
+import { type CampoPerfilProps } from "../types/CampoPerfilProps"
 
 const camposPerfil = [
     {
@@ -23,13 +23,13 @@ const camposPerfil = [
         placeholder: "Fale sobre você...",
         campo: "biografia"
     }
-] satisfies CampoUserProps[]
+] satisfies CampoPerfilProps[]
 
 const EditorPerfil = () => {
     return (
         <div className="box">
             {camposPerfil.map((campo) => (
-                <CampoUser
+                <CampoPerfil
                     key={campo.campo}
                     {...campo}
                 />

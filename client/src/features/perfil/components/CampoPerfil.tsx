@@ -1,8 +1,8 @@
 import { useHandleChange } from "../hook/useHandleChange"
 import "../../../shared/styles/forms.css"
-import { type CampoUserProps } from "../types/CampoUserProps"
+import { type CampoPerfilProps } from "../types/CampoPerfilProps"
 
-const CampoUser = ({ label, placeholder, campo, tipo }: CampoUserProps ) => {
+const CampoPerfil = ({ label, placeholder, campo, tipo }: CampoPerfilProps ) => {
    
     const { perfil, handleChange } = useHandleChange(campo)
 
@@ -32,4 +32,4 @@ const CampoUser = ({ label, placeholder, campo, tipo }: CampoUserProps ) => {
     )
 }   
 
-export default CampoUser
+export default CampoPerfil
