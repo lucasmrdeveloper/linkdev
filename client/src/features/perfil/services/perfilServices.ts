@@ -4,6 +4,11 @@ const API_URL = "http://localhost:8000/api/perfil"
 
 export const buscarPerfil = async () => {
     const resposta = await fetch(API_URL) 
+
+    if (!resposta.ok) {
+        throw new Error("Não foi possível buscar o perfil")
+    }
+
     const dados = await resposta.json()
 
     return dados
