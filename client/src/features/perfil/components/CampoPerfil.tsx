@@ -1,9 +1,8 @@
+import type { CampoPerfilProps } from "../types/CampoPerfilProps"
 import { useHandleChange } from "../hook/useHandleChange"
 import "../../../shared/styles/forms.css"
-import { type CampoPerfilProps } from "../types/CampoPerfilProps"
 
 const CampoPerfil = ({ label, placeholder, campo, tipo }: CampoPerfilProps ) => {
-   
     const { perfil, handleChange } = useHandleChange(campo)
 
     return(
@@ -18,7 +17,7 @@ const CampoPerfil = ({ label, placeholder, campo, tipo }: CampoPerfilProps ) => 
                     onChange={handleChange}
                     required
                 />
-                ) : (
+            ) : (
                 <input 
                     id={campo}
                     type="text"
