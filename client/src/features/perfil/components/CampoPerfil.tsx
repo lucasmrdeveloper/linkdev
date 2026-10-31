@@ -4,6 +4,7 @@ import "../../../shared/styles/forms.css"
 
 const CampoPerfil = ({ label, placeholder, campo, tipo }: CampoPerfilProps ) => {
     const { perfil, handleChange } = useHandleChange(campo)
+    const valor = perfil[campo]
 
     return(
         <div className="campo"> 
@@ -12,7 +13,7 @@ const CampoPerfil = ({ label, placeholder, campo, tipo }: CampoPerfilProps ) => 
             {tipo === "textarea" ? (
                 <textarea
                     id={campo}
-                    value={perfil ? perfil[campo] : ""}
+                    value={valor}
                     placeholder={placeholder}
                     onChange={handleChange}
                     required
@@ -21,7 +22,7 @@ const CampoPerfil = ({ label, placeholder, campo, tipo }: CampoPerfilProps ) => 
                 <input 
                     id={campo}
                     type="text"
-                    value={perfil ? perfil[campo] : ""}
+                    value={valor}
                     placeholder={placeholder}
                     onChange={handleChange}
                     required
