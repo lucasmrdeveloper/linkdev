@@ -1,9 +1,9 @@
 import type { Perfil } from "../../../shared/contexts/perfilRascunhoContext"
 
-const API_URL = "http://localhost:3000/perfil"
+const API_URL = "http://localhost:8000/api/perfil"
 
 export const buscarPerfil = async () => {
-    const resposta = await fetch(API_URL)
+    const resposta = await fetch(API_URL) 
     const dados = await resposta.json()
 
     return dados
