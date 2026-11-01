@@ -1,15 +1,8 @@
-import { useContext, type ChangeEvent } from "react"
-import { PerfilRascunhoContext} from "../../../shared/contexts/perfilRascunhoContext"
-
+import { type ChangeEvent } from "react"
+import usePerfilContexto from "./usePerfilContexto"
     
 export const useHandleChange = (campo: string) => {
-    const contexto = useContext(PerfilRascunhoContext)
-
-    if (!contexto) {
-        throw new Error("CampoUser deve estar dentro de PerfilContext.Provider")
-    }
-    
-    const { perfil, setPerfil } = contexto
+    const { perfil, setPerfil } = usePerfilContexto()
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { value } = e.target

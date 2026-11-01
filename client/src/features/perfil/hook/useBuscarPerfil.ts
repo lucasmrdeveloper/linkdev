@@ -1,16 +1,9 @@
 import { buscarPerfil } from "../services/perfilServices"
-import { PerfilRascunhoContext } from "../../../shared/contexts/perfilRascunhoContext"
-import { useContext , useEffect} from "react"
+import { useEffect } from "react"
+import usePerfilContexto from "./usePerfilContexto"
 
 export const useBuscarPerfil = () => {
-
-    const contexto = useContext(PerfilRascunhoContext)
-
-    if (!contexto) {
-        throw new Error("CampoUser deve estar dentro de PerfilContext.Provider")
-    }
-    
-    const { setPerfil } = contexto
+    const { setPerfil } = usePerfilContexto()
 
     useEffect(() => {
         const carregarPerfil = async () => {
