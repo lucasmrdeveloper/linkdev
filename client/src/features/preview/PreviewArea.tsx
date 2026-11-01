@@ -1,21 +1,11 @@
+import usePerfilContexto from "../perfil/hook/usePerfilContexto"
+import { useHabilidadesContexto } from "../habilidades/hooks/useHabilidadesContexto"
 import"./PreviewArea.css"
 
-import { PerfilRascunhoContext} from "../../shared/contexts/perfilRascunhoContext"
-import { HabilidadesRascunhoContext } from "../../shared/contexts/habilidadesRascunhoContext"
-
-import { useContext } from "react"
-
 const PreviewArea = () => {
-    const perfilContexto = useContext(PerfilRascunhoContext)
-    const habilidadesContexto = useContext(HabilidadesRascunhoContext)
-    
-    if (!perfilContexto || !habilidadesContexto) {
-        throw new Error("Contexto não existe")
-    }
+    const { perfil } = usePerfilContexto()
+    const { habilidadesRascunho } = useHabilidadesContexto()
 
-    const { perfil } = perfilContexto
-    const { habilidadesRascunho } = habilidadesContexto
-    
     const {
         nome,
         especialidade,
@@ -23,9 +13,7 @@ const PreviewArea = () => {
         biografia
     } = perfil ?? {}
   
-
-    return(
-    
+    return(  
         <div className="preview-container">
 
             <div className="preview-box">
@@ -46,10 +34,8 @@ const PreviewArea = () => {
                         <li className="preview-habilidade">{habilidade.nome}</li>
                     )))} 
                 </ul>  
-
             </div>
         </div>
-      
     ) 
 }
 
