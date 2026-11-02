@@ -1,52 +1,30 @@
 // CSS
 import "./SidebarButton.css"
 
-// Hooks
-import { useContext, useState } from "react"
- "../contexts/habilidadesNovas"
+// Contexts
+import usePerfilContexto from "../../features/perfil/hook/usePerfilContexto"
 
-// Context
-import { PerfilRascunhoContext } from "../contexts/perfilRascunhoContext"
-import { HabilidadesNovasContext } from "../contexts/habilidadesNovas"
-
+// Services
 import { editarPerfil } from "../../features/perfil/services/perfilServices"
-import { criarHabilidade, excluirHabilidade } from "../../features/habilidades/services/habilidadesServices"
+import { criarHabilidade, excluirHabilidade } from "../../features/habilidades/services/habilidadesServices" 
 
 const SidebarButton = () => {
-    const perfilContexto = useContext(PerfilRascunhoContext)
-    const habilidadesContexto = useContext(HabilidadesNovasContext)
+    const { perfil } = usePerfilContexto()
 
-    
-    if (!perfilContexto || !habilidadesContexto) {
-        throw new Error("Contexto não existe")
-    }
-    
-    const { perfil } = perfilContexto
-    const { habilidadesNovas, setHabilidadesNovas, habilidadesExcluidas } = habilidadesContexto
-    
-    const handleSalvar = async () => {
-        
-        console.log("=====Botão Salvar=====")
-
-        console.log("habilidadesExcluidas", habilidadesExcluidas)
-        console.log(habilidadesNovas)
-            
+    const handleSalvar = async () => {      
         try {
-            await Promise.all(
-                habilidadesExcluidas.map(item => excluirHabilidade(item))
-            )
             await editarPerfil(perfil)
+            /*   await Promise.all(
+                habilidadesExcluidas.map(item => excluirHabilidade(item))
+            ) */
 
-
-
-
-            for (const habilidade of habilidadesNovas) {
+            /* for (const habilidade of habilidadesNovas) {
                 await criarHabilidade(habilidade)
 
                 setHabilidadesNovas(atual =>
                     atual.filter(item => item.id !== habilidade.id)
                 )
-            }
+            } */
         }
         catch (error) {
             throw new Error("Houve um erro ao salvar")
