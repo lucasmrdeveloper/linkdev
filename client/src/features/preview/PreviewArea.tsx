@@ -6,7 +6,7 @@ import"./PreviewArea.css"
 const PreviewArea = () => {
     const { perfil } = usePerfilContexto()
     const { habilidadesRascunho } = useHabilidadesContexto()
-    const { carregamentoPerfil } = useBuscarPerfil()
+    const { carregamentoPerfil, erro } = useBuscarPerfil()
 
     const {
         nome,
@@ -15,11 +15,13 @@ const PreviewArea = () => {
         biografia
     } = perfil ?? {}
 
+
     return(  
         <div className="preview-container">
-
             <div className="preview-box">
-                {carregamentoPerfil ? (
+                {erro ? (
+                    <p>{erro}</p>
+                ) : carregamentoPerfil ? (
                     <p>Carregando...</p>
                 ) : (
                     <>

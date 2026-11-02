@@ -5,6 +5,7 @@ import usePerfilContexto from "./usePerfilContexto"
 export const useBuscarPerfil = () => {
     const { setPerfil } = usePerfilContexto()
     const [carregamentoPerfil, setCarregamentoPerfil] = useState(true)
+    const [erro, setErro] = useState("")
 
     useEffect(() => {
         const carregarPerfil = async () => {
@@ -12,8 +13,8 @@ export const useBuscarPerfil = () => {
                 const dados = await buscarPerfil()
                 setPerfil(dados)
             }
-            catch (error) {
-                console.error("Houve um erro ao fazer a requisição")
+            catch {
+                setErro(`Houve um erro ao carregar o perfil.`)
             }
             finally {
                 setCarregamentoPerfil(false)
@@ -23,5 +24,5 @@ export const useBuscarPerfil = () => {
         carregarPerfil()
     }, [])
 
-    return { carregamentoPerfil }
+    return { carregamentoPerfil, erro }
 }
