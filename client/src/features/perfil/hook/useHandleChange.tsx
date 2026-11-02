@@ -5,13 +5,11 @@ export const useHandleChange = (campo: string) => {
     const { perfil, setPerfil } = usePerfilContexto()
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { value } = e.target
-
         setPerfil(prevPerfil => ({
             ...prevPerfil,
-            [campo]: value
+            [campo]: e.target.value
         })) 
     }
 
-    return { perfil, handleChange}
+    return { perfil, handleChange }
 } 
