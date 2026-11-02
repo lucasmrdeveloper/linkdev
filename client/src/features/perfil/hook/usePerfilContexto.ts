@@ -5,12 +5,10 @@ const usePerfilContexto = () => {
     const contexto = useContext(PerfilRascunhoContext)
     
     if (!contexto) {
-        throw new Error("CampoUser deve estar dentro de PerfilContext.Provider")
+        throw new Error("O contexto não existe")
     }
-    
-    const { perfil, setPerfil } = contexto
 
-    return { perfil, setPerfil }
+    return { ...contexto }
 }
 
 export default usePerfilContexto
