@@ -7,6 +7,20 @@
     bottom: 0px;
     width: 100%;
 
+    .mensagem{
+        padding: 10px;
+        color: #fff;
+        border-radius: 10px;
+    }
+    
+    .mensagem-erro{
+        background-color: red;
+    }
+
+    .mensagem-sucesso{
+        background-color: green;
+    }
+
     button{
         background-color: #5039F6;
         padding: 10px;
