@@ -2,7 +2,7 @@
 import "./SidebarButton.css"
 
 // Contexts
-import usePerfilContexto from "../../features/perfil/hook/usePerfilContexto"
+import usePerfilContexto from "../../features/perfil/hooks/usePerfilContexto"
 
 // Hooks
 import { useState, useEffect } from "react"

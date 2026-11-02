@@ -7,7 +7,7 @@ import Perfil from "../../features/perfil/components/Perfil.tsx"
 import Habilidades from "../../features/habilidades/components/Habilidades.tsx"
 
 import "./Sidebar.css"
-import { useBuscarPerfil } from "../../features/perfil/hook/useBuscarPerfil.ts"
+import { useBuscarPerfil } from "../../features/perfil/hooks/useBuscarPerfil.ts"
 import { useBuscarHabilidades } from "../../features/habilidades/hooks/useBuscarHabilidades.ts"
 
 const Sidebar = () => {

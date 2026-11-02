@@ -1,6 +1,6 @@
-import usePerfilContexto from "../perfil/hook/usePerfilContexto"
+import usePerfilContexto from "../perfil/hooks/usePerfilContexto"
 import { useHabilidadesContexto } from "../habilidades/hooks/useHabilidadesContexto"
-import { useBuscarPerfil } from "../perfil/hook/useBuscarPerfil"
+import { useBuscarPerfil } from "../perfil/hooks/useBuscarPerfil"
 import"./PreviewArea.css"
 
 const PreviewArea = () => {

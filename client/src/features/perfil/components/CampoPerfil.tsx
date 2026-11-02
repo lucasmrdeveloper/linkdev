@@ -1,5 +1,5 @@
 import type { CampoPerfilProps } from "../types/CampoPerfilProps"
-import { useHandleChange } from "../hook/useHandleChange"
+import { useHandleChange } from "../hooks/useHandleChange"
 import "../../../shared/styles/forms.css"
 
 const CampoPerfil = ({ label, placeholder, campo, tipo }: CampoPerfilProps ) => {
