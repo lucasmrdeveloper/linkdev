@@ -1,4 +1,5 @@
-import { buscarPerfil } from "../services/perfilServicesimport { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
+import { buscarPerfil } from "../services/perfilServices"
 import usePerfilContexto from "./usePerfilContexto"
 
 export const useBuscarPerfil = () => {
