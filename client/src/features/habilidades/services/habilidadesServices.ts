@@ -1,6 +1,6 @@
 import type { Habilidade } from "../../../shared/contexts/habilidadesRascunhoContext"
 
-const API_URL = "http://localhost:3000/habilidades"
+const API_URL = "http://localhost:8000/api/habilidades"
 
 export const criarHabilidade = async (habilidades)=> {
     console.log("=====criarHabilidaes=====")
