@@ -3,6 +3,7 @@ import "./SidebarButton.css"
 
 // Contexts
 import usePerfilContexto from "../../features/perfil/hooks/usePerfilContexto"
+import { useHabilidadesContexto } from "../../features/habilidades/hooks/useHabilidadesContexto"
 
 // Hooks
 import { useState, useEffect } from "react"
@@ -19,6 +20,8 @@ type Mensagem = {
 
 const SidebarButton = () => {
     const { perfil } = usePerfilContexto()
+    const { habilidadesNovas, setHabilidadesNovas } = useHabilidadesContexto()
+
     const [mensagem, setMensagem] = useState<Mensagem | null>(null)
     const [salvando, setSalvando] = useState(false)
 
@@ -43,13 +46,13 @@ const SidebarButton = () => {
                 habilidadesExcluidas.map(item => excluirHabilidade(item))
             ) */
 
-            /* for (const habilidade of habilidadesNovas) {
+             for (const habilidade of habilidadesNovas) {
                 await criarHabilidade(habilidade)
 
                 setHabilidadesNovas(atual =>
                     atual.filter(item => item.id !== habilidade.id)
                 )
-            } */
+            } 
             setMensagem({ tipo: "sucesso", mensagem: "Os dados foram salvos." })
         }
         catch {
