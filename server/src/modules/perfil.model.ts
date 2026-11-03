@@ -18,23 +18,19 @@ export const perfilPadrao: Perfil = {
 const perfilSchema = new Schema<Perfil>({
     nome: { 
         type: String,
-        trim: true,
-        default: "" 
+        trim: true
     },
     especialidade: { 
         type: String, 
-        trim: true, 
-        default: ""
+        trim: true
     },
     localidade: { 
         type: String, 
-        trim: true, 
-        default: "" 
+        trim: true
     },
     biografia: { 
         type: String, 
-        trim: true, 
-        default: "" 
+        trim: true
     }
 })
 
