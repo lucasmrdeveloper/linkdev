@@ -1,21 +1,19 @@
 import { HabilidadesContext } from "../../../shared/contexts/habilidadesContext";
-import { HabilidadesNovasContext } from "../../../shared/contexts/habilidadesNovas";
 import { useContext } from "react";
 
 export const useHabilidadesContexto = () => {
     const contexto = useContext(HabilidadesContext)
-    const HabilidadesNovasContexto = useContext(HabilidadesNovasContext)
 
-    if (!contexto || !HabilidadesNovasContexto) {
+    if (!contexto) {
         throw new Error("CampoUser deve estar dentro de PerfilContext.Provider")
     }
 
     return {
         habilidadesRascunho: contexto.habilidadesRascunho,
         setHabilidadesRascunho: contexto.setHabilidadesRascunho,
-        habilidadesNovas: HabilidadesNovasContexto.habilidadesNovas,
-        setHabilidadesNovas: HabilidadesNovasContexto.setHabilidadesNovas,
-        habilidadesExcluidas: HabilidadesNovasContexto.habilidadesExcluidas,
-        setHabilidadesExcluidas: HabilidadesNovasContexto.setHabilidadesExcluidas
+        habilidadesNovas: contexto.habilidadesNovas,
+        setHabilidadesNovas: contexto.setHabilidadesNovas,
+        habilidadesExcluidas: contexto.habilidadesExcluidas,
+        setHabilidadesExcluidas: contexto.setHabilidadesExcluidas
     }
 }

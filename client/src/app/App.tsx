@@ -4,7 +4,6 @@ import { useState } from "react"
 
 import { PerfilContext, type Perfil } from "../shared/contexts/perfilContext"
 import { HabilidadesContext, type Habilidade } from "../shared/contexts/habilidadesContext"
-import { HabilidadesNovasContext } from "../shared/contexts/habilidadesNovas"
 
 import PreviewArea from "../features/preview/PreviewArea"
 
@@ -29,10 +28,8 @@ function App() {
     <main>
         <HabilidadesContext value={{habilidadesRascunho, setHabilidadesRascunho}}>
           <PerfilContext value={{perfil, setPerfil}}>
-            <HabilidadesNovasContext value={{habilidadesNovas, setHabilidadesNovas, habilidadesExcluidas, setHabilidadesExcluidas}}>
               <Sidebar />
               <PreviewArea />
-            </HabilidadesNovasContext>
           </PerfilContext>
         </HabilidadesContext>
     </main>
