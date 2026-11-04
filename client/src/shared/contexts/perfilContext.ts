@@ -10,6 +10,9 @@ export type Perfil = {
 type PerfilContextValue = {
     perfil: Perfil,
     setPerfil: Dispatch<SetStateAction<Perfil>>
+
+    perfilAPI: Perfil,
+    setPerfilAPI: Dispatch<SetStateAction<Perfil>>
 }
 
 export const PerfilContext = createContext<PerfilContextValue | null>(null)

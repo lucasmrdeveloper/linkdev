@@ -3,7 +3,7 @@ import { buscarPerfil } from "../services/perfilServices"
 import usePerfilContexto from "./usePerfilContexto"
 
 export const useBuscarPerfil = () => {
-    const { setPerfil } = usePerfilContexto()
+    const { setPerfil, setPerfilAPI } = usePerfilContexto()
     const [carregamentoPerfil, setCarregamentoPerfil] = useState(true)
     const [erro, setErro] = useState("")
 
@@ -12,6 +12,7 @@ export const useBuscarPerfil = () => {
             try {
                 const dados = await buscarPerfil()
                 setPerfil(dados)
+                setPerfilAPI(dados)
             }
             catch {
                 setErro(`Houve um erro ao carregar o perfil.`)
