@@ -4,7 +4,7 @@ type Habilidade = {
     nome: string
 }
 
-const habilidadesPadrao: Habilidade[] = [
+export const habilidadesPadrao: Habilidade[] = [
     { nome: "JavaScript" },
     { nome: "TypeScript" },
     { nome: "React" },

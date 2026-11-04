@@ -3,6 +3,7 @@ import app from "./app"
 dotenv.config()
 import connectDB from ".././config/database.ts"
 import PerfilModel, {perfilPadrao} from "./modules/perfil.model.ts"
+import HabilidadeModel, {habilidadesPadrao} from "./modules/habilidades.model.ts"
 
 const port = process.env.PORT
 
@@ -14,6 +15,12 @@ const initServer = async () => {
         { $setOnInsert: perfilPadrao },
         { upsert: true }
     )
+
+    const quantidadeHabilidades = await HabilidadeModel.countDocuments()
+
+    if (quantidadeHabilidades === 0) {
+        await HabilidadeModel.insertMany(habilidadesPadrao)
+    }
 
     app.listen(port, () => {
         console.log(`Backend disponível em http://localhost:${port}`)
