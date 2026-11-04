@@ -18,8 +18,14 @@ export const useHandleSalvar = () => {
     const [mensagem, setMensagem] = useState<Mensagem | null>(null)
     const [salvando, setSalvando] = useState(false)
 
-    const { perfil } = usePerfilContexto()
+    const { perfil, perfilAPI } = usePerfilContexto()
     const { habilidadesNovas, setHabilidadesNovas } = useHabilidadesContexto()
+    
+    const perfilFoiAlterado = 
+        perfil.nome !== perfilAPI.nome ||
+        perfil.especialidade !== perfilAPI.especialidade ||
+        perfil.localidade !== perfilAPI.localidade ||
+        perfil.biografia !== perfilAPI.biografia 
 
     useEffect(() => {
         if (!mensagem) return
@@ -36,19 +42,24 @@ export const useHandleSalvar = () => {
         setMensagem(null)
 
         try {
-            await editarPerfil(perfil)
+            if (perfilFoiAlterado) {
+                console.log("foi alterado, chamando requisição de editar")
+                await editarPerfil(perfil)
+            }
             
             /*   await Promise.all(
                 habilidadesExcluidas.map(item => excluirHabilidade(item))
             ) */
-    
-                for (const habilidade of habilidadesNovas) {
+            console.log("depois do if")
+            for (const habilidade of habilidadesNovas) {
+                console.log("habilidades precisa alterar")
                 await criarHabilidade(habilidade)
     
                 setHabilidadesNovas(atual =>
                     atual.filter(item => item.id !== habilidade.id)
                 )
             } 
+
             setMensagem({ tipo: "sucesso", mensagem: "Os dados foram salvos." })
         }
         catch {
