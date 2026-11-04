@@ -26,7 +26,7 @@ function App() {
   
   return (
     <main>
-        <HabilidadesContext value={{habilidadesRascunho, setHabilidadesRascunho}}>
+        <HabilidadesContext value={{habilidadesRascunho, setHabilidadesRascunho, habilidadesNovas, setHabilidadesNovas, habilidadesExcluidas, setHabilidadesExcluidas}}>
           <PerfilContext value={{perfil, setPerfil}}>
               <Sidebar />
               <PreviewArea />
