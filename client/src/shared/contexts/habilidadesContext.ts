@@ -5,15 +5,15 @@ export type Habilidade = {
     nome: string,
 }
 
-type habilidadesRascunhoValue = {
+type habilidadesValue = {
     habilidadesRascunho: Habilidade[],
     setHabilidadesRascunho: Dispatch<SetStateAction<Habilidade[]>>
 
     habilidadesNovas: Habilidade[],
     setHabilidadesNovas: Dispatch<SetStateAction<Habilidade[]>>
-    
+
     habilidadesExcluidas: string[],
     setHabilidadesExcluidas: Dispatch<SetStateAction<string[]>>
 }
 
-export const HabilidadesRascunhoContext = createContext<habilidadesRascunhoValue | null>(null)
+export const HabilidadesContext = createContext<habilidadesValue | null>(null)

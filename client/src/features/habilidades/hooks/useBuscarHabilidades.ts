@@ -1,10 +1,10 @@
 import { useEffect, useContext } from "react"
 
 import { buscarHabilidades } from "../services/habilidadesServices"
-import { HabilidadesRascunhoContext } from "../../../shared/contexts/habilidadesRascunhoContext"
+import { HabilidadesContext } from "../../../shared/contexts/habilidadesContext"
 
 export const useBuscarHabilidades = () => {
-    const habilidadesContexto = useContext(HabilidadesRascunhoContext)
+    const habilidadesContexto = useContext(HabilidadesContext)
 
     useEffect(() => {
         console.log("===== Habilidads foi montado =====")

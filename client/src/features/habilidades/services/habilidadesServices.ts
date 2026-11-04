@@ -1,4 +1,4 @@
-import type { Habilidade } from "../../../shared/contexts/habilidadesRascunhoContext"
+import type { Habilidade } from "../../../shared/contexts/habilidadesContext"
 
 const API_URL = "http://localhost:8000/api/habilidades"
 

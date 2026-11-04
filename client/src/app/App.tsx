@@ -3,7 +3,7 @@ import Sidebar from "../shared/components/Sidebar"
 import { useState } from "react"
 
 import { PerfilContext, type Perfil } from "../shared/contexts/perfilContext"
-import { HabilidadesRascunhoContext, type Habilidade } from "../shared/contexts/habilidadesRascunhoContext"
+import { HabilidadesContext, type Habilidade } from "../shared/contexts/habilidadesContext"
 import { HabilidadesNovasContext } from "../shared/contexts/habilidadesNovas"
 
 import PreviewArea from "../features/preview/PreviewArea"
@@ -27,14 +27,14 @@ function App() {
   
   return (
     <main>
-        <HabilidadesRascunhoContext value={{habilidadesRascunho, setHabilidadesRascunho}}>
+        <HabilidadesContext value={{habilidadesRascunho, setHabilidadesRascunho}}>
           <PerfilContext value={{perfil, setPerfil}}>
             <HabilidadesNovasContext value={{habilidadesNovas, setHabilidadesNovas, habilidadesExcluidas, setHabilidadesExcluidas}}>
               <Sidebar />
               <PreviewArea />
             </HabilidadesNovasContext>
           </PerfilContext>
-        </HabilidadesRascunhoContext>
+        </HabilidadesContext>
     </main>
   )
 }

@@ -1,9 +1,9 @@
-import { HabilidadesRascunhoContext } from "../../../shared/contexts/habilidadesRascunhoContext";
+import { HabilidadesContext } from "../../../shared/contexts/habilidadesContext";
 import { HabilidadesNovasContext } from "../../../shared/contexts/habilidadesNovas";
 import { useContext } from "react";
 
 export const useHabilidadesContexto = () => {
-    const contexto = useContext(HabilidadesRascunhoContext)
+    const contexto = useContext(HabilidadesContext)
     const HabilidadesNovasContexto = useContext(HabilidadesNovasContext)
 
     if (!contexto || !HabilidadesNovasContexto) {
