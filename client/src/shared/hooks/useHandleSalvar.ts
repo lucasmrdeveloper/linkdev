@@ -3,8 +3,10 @@ import { useState, useEffect } from "react"
 import usePerfilContexto from "../../features/perfil/hooks/usePerfilContexto"
 
 // Services
-import { editarPerfil } from "../../features/perfil/services/perfilServices"
 import { criarHabilidade } from "../../features/habilidades/services/habilidadesServices"
+
+// Utils
+import { salvarPerfil } from "../utils/salvarPerfil"
 
 // Contexts
 import { useHabilidadesContexto } from "../../features/habilidades/hooks/useHabilidadesContexto"
@@ -18,14 +20,10 @@ export const useHandleSalvar = () => {
     const [mensagem, setMensagem] = useState<Mensagem | null>(null)
     const [salvando, setSalvando] = useState(false)
 
-    const { perfil, perfilAPI } = usePerfilContexto()
     const { habilidadesNovas, setHabilidadesNovas } = useHabilidadesContexto()
+
+    const { perfil, perfilAPI } = usePerfilContexto()
     
-    const perfilFoiAlterado = 
-        perfil.nome !== perfilAPI.nome ||
-        perfil.especialidade !== perfilAPI.especialidade ||
-        perfil.localidade !== perfilAPI.localidade ||
-        perfil.biografia !== perfilAPI.biografia 
 
     useEffect(() => {
         if (!mensagem) return
@@ -42,17 +40,13 @@ export const useHandleSalvar = () => {
         setMensagem(null)
 
         try {
-            if (perfilFoiAlterado) {
-                console.log("foi alterado, chamando requisição de editar")
-                await editarPerfil(perfil)
-            }
-            
+            await salvarPerfil(perfil, perfilAPI)
+
             /*   await Promise.all(
                 habilidadesExcluidas.map(item => excluirHabilidade(item))
             ) */
-            console.log("depois do if")
+      
             for (const habilidade of habilidadesNovas) {
-                console.log("habilidades precisa alterar")
                 await criarHabilidade(habilidade)
     
                 setHabilidadesNovas(atual =>
