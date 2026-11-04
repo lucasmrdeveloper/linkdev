@@ -1,4 +1,4 @@
-import type { Perfil } from "../../../shared/contexts/perfilRascunhoContext"
+import type { Perfil } from "../../../shared/contexts/perfilContext"
 
 const API_URL = "http://localhost:8000/api/perfil"
 

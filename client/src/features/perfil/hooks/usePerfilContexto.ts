@@ -1,8 +1,8 @@
 import { useContext } from "react"
-import { PerfilRascunhoContext } from "../../../shared/contexts/perfilRascunhoContext"
+import { PerfilContext } from "../../../shared/contexts/perfilContext"
 
 const usePerfilContexto = () => {
-    const contexto = useContext(PerfilRascunhoContext)
+    const contexto = useContext(PerfilContext)
     
     if (!contexto) {
         throw new Error("O contexto não existe")

@@ -7,11 +7,11 @@ export type Perfil = {
     biografia: string
 }
 
-type PerfilRascunhoContextType = {
+type PerfilContextValue = {
     perfil: Perfil,
     setPerfil: Dispatch<SetStateAction<Perfil>>
 }
 
-export const PerfilRascunhoContext = createContext<PerfilRascunhoContextType | null>(null)
+export const PerfilContext = createContext<PerfilContextValue | null>(null)
 
 
