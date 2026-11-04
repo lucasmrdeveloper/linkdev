@@ -1,4 +1,6 @@
 import { Router } from "express"
+import HabilidadeModel from "./habilidades.model"
+
 
 const habilidadesRoutes = Router()
 
@@ -7,9 +9,19 @@ habilidadesRoutes.get("/", async (req, res) => {
 })
 
 habilidadesRoutes.post("/", async (req, res) => {
-    console.log("Body recebido em POST /api/habilidades:", req.body)
+    const { nome } = req.body
 
-   
+    if ( typeof nome !== "string" ) {
+        return res.status(400).json({
+            mensagem: "nome precisa ser uma string"
+        })
+    }
+
+    const habilidade = await HabilidadeModel.create({
+        nome
+    })
+
+    return res.status(201).json(habilidade)
 })
 
 export default habilidadesRoutes
