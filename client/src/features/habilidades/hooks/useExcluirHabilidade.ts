@@ -1,25 +1,20 @@
 import { useHabilidadesContexto } from "./useHabilidadesContexto"
 
 export const useExcluirHabilidade = () => {
-    const { 
+    const {
         setHabilidadesRascunho, 
         setHabilidadesNovas,
         habilidadesNovas,
-        habilidadesExcluidas,
         setHabilidadesExcluidas
-    } = 
-    useHabilidadesContexto()
+    } = useHabilidadesContexto()
 
     return (id: string) => {
-
         const aindaNaoFoiSalva = habilidadesNovas.some(item => item.id === id) 
 
-        console.log("aindaNaoFoiSalva", aindaNaoFoiSalva)
-     
         setHabilidadesRascunho(atual => 
             atual.filter((item) => item.id !== id)
         ) 
-
+        
         if (aindaNaoFoiSalva) {
             setHabilidadesNovas(atual => 
                 atual.filter((item) => item.id !== id)
@@ -29,12 +24,7 @@ export const useExcluirHabilidade = () => {
             setHabilidadesExcluidas(atual => 
                 atual.includes(id) ? atual : [...atual, id]
             )
-
-            console.log("habilidadesExcluidas", habilidadesExcluidas)
-        }
-
-
-
+        } 
     }
 }
 
