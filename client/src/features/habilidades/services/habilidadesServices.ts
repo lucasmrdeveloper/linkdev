@@ -2,6 +2,11 @@ import type { Habilidade } from "../../../shared/contexts/habilidadesContext"
 
 const API_URL = "http://localhost:8000/api/habilidades"
 
+type HabilidadeApi = {
+    _id: string,
+    nome: string
+}
+
 export const criarHabilidade = async (habilidades)=> {
     console.log("=====criarHabilidaes=====")
     console.log("habilidades", habilidades)
@@ -25,7 +30,7 @@ export const criarHabilidade = async (habilidades)=> {
     return dados
 }
 
-export const buscarHabilidades = async (): Promise<Habilidade[]> => {
+export const buscarHabilidades = async (): Promise<HabilidadeApi[]> => {
     const resposta = await fetch(API_URL)
 
     if (!resposta){
