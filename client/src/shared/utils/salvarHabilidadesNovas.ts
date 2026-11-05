@@ -1,0 +1,16 @@
+import type { Dispatch, SetStateAction } from "react"
+import type { Habilidade } from "../contexts/habilidadesContext"
+
+export const salvarHabilidadesNovas = async (
+    habilidadesNovas: Habilidade[], 
+    setHabilidadesNovas: Dispatch<SetStateAction<Habilidade[]>>, 
+    criarHabilidade: (habilidade: Habilidade) => Promise<unknown>
+) => {
+    for (const habilidade of habilidadesNovas) {
+        await criarHabilidade(habilidade)
+
+        setHabilidadesNovas(atual =>
+            atual.filter(item => item.id !== habilidade.id)
+        )
+    } 
+}
