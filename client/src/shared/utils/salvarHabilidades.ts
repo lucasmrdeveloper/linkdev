@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from "react"
 import type { Habilidade } from "../contexts/habilidadesContext"
 
-export const salvarHabilidadesNovas = async (
+export const salvarHabilidades = async (
     habilidadesNovas: Habilidade[], 
     setHabilidadesNovas: Dispatch<SetStateAction<Habilidade[]>>, 
     criarHabilidade: (habilidade: Habilidade) => Promise<unknown>

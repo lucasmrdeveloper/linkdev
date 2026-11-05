@@ -7,7 +7,7 @@ import { criarHabilidade } from "../../features/habilidades/services/habilidades
 
 // Utils
 import { salvarPerfil } from "../utils/salvarPerfil"
-import { salvarHabilidadesNovas } from "../utils/salvarHabilidadesNovas"
+import { salvarHabilidades } from "../utils/salvarHabilidades"
 
 // Contexts
 import { useHabilidadesContexto } from "../../features/habilidades/hooks/useHabilidadesContexto"
@@ -42,7 +42,7 @@ export const useHandleSalvar = () => {
 
         try {
             await salvarPerfil(perfil, perfilAPI)
-            await salvarHabilidadesNovas(habilidadesNovas, setHabilidadesNovas, criarHabilidade)
+            await salvarHabilidades(habilidadesNovas, setHabilidadesNovas, criarHabilidade)
 
             /*   await Promise.all(
                 habilidadesExcluidas.map(item => excluirHabilidade(item))
