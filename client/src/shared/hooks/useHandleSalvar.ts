@@ -7,7 +7,7 @@ import { criarHabilidade } from "../../features/habilidades/services/habilidades
 
 // Utils
 import { salvarPerfil } from "../utils/salvarPerfil"
-import { salvarHabilidades } from "../utils/salvarHabilidades"
+import { salvarAlteracoesHabilidades } from "../utils/salvarAlteracoesHabilidades"
 
 // Contexts
 import { useHabilidadesContexto } from "../../features/habilidades/hooks/useHabilidadesContexto"
@@ -42,12 +42,7 @@ export const useHandleSalvar = () => {
 
         try {
             await salvarPerfil(perfil, perfilAPI)
-            await salvarHabilidades(habilidadesNovas, setHabilidadesNovas, criarHabilidade)
-
-            /*   await Promise.all(
-                habilidadesExcluidas.map(item => excluirHabilidade(item))
-            ) */
-      
+            await salvarAlteracoesHabilidades(habilidadesNovas, setHabilidadesNovas, criarHabilidade)
 
             setMensagem({ tipo: "sucesso", mensagem: "Os dados foram salvos." })
         }
