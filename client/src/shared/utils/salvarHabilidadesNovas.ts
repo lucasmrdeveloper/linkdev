@@ -6,11 +6,13 @@ export const salvarHabilidadesNovas = async (
     setHabilidadesNovas: Dispatch<SetStateAction<Habilidade[]>>, 
     criarHabilidade: (habilidade: Habilidade) => Promise<unknown>
 ) => {
-    for (const habilidade of habilidadesNovas) {
-        await criarHabilidade(habilidade)
-
-        setHabilidadesNovas(atual =>
-            atual.filter(item => item.id !== habilidade.id)
-        )
-    } 
+    if (habilidadesNovas.length > 0) {
+        for (const habilidade of habilidadesNovas) {
+            await criarHabilidade(habilidade)
+    
+            setHabilidadesNovas(atual =>
+                atual.filter(item => item.id !== habilidade.id)
+            )
+        } 
+    }
 }
