@@ -27,6 +27,10 @@ export const salvarAlteracoesHabilidades = async (
     const excluirHabilidades = async () => {
         for (const habilidade of habilidadesExcluidas) {
             await excluirHabilidade(habilidade)
+
+            setHabilidadesExcluidas(atual =>
+                atual.filter(item => item !== habilidade)
+            )
         }
     } 
     
