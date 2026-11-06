@@ -32,4 +32,16 @@ habilidadesRoutes.post("/", async (req, res) => {
     return res.status(201).json(habilidade)
 })
 
+habilidadesRoutes.delete("/:id", async (req, res) => {
+    const habilidade = await HabilidadeModel.findByIdAndDelete(req.params.id)
+
+    if (!habilidade) {
+        return res.status(404).json({
+            mensagem: "Habilidade não encontrada"
+        })
+    }
+
+    return res.status(204).send()
+})
+
 export default habilidadesRoutes
