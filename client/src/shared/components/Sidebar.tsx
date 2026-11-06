@@ -5,6 +5,7 @@ import SidebarButton from "./SidebarButton.tsx"
 
 import Perfil from "../../features/perfil/components/Perfil.tsx"
 import Habilidades from "../../features/habilidades/components/Habilidades.tsx"
+import Links from "../../features/links/components/Links.tsx"
 
 import "./Sidebar.css"
 import { useBuscarPerfil } from "../../features/perfil/hooks/useBuscarPerfil.ts"
@@ -27,8 +28,10 @@ const Sidebar = () => {
                      <Aba titulo="Habilidades" icone="/skills.svg">
                         <Habilidades />
                     </Aba>
-                    
- 
+
+                     <Aba titulo="Links" icone="/link.svg">
+                        <Links />
+                    </Aba>
                 </div>
             </div>
 
