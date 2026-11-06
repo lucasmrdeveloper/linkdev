@@ -1,10 +1,16 @@
 import type { Dispatch, SetStateAction } from "react"
 import type { Habilidade } from "../contexts/habilidadesContext"
 
+import { excluirHabilidade } from "../../features/habilidades/services/habilidadesServices"
+
 export const salvarAlteracoesHabilidades = async (
     habilidadesNovas: Habilidade[], 
     setHabilidadesNovas: Dispatch<SetStateAction<Habilidade[]>>, 
-    criarHabilidade: (habilidade: Habilidade) => Promise<unknown>
+
+    criarHabilidade: (habilidade: Habilidade) => Promise<unknown>,
+
+    habilidadesExcluidas: string[],
+    setHabilidadesExcluidas: Dispatch<SetStateAction<string[]>>
 ) => {
     const salvarHabilidadesNovas = async () => {
         if (habilidadesNovas.length > 0) {
@@ -17,6 +23,13 @@ export const salvarAlteracoesHabilidades = async (
             } 
         }
     }
+
+    const excluirHabilidades = async () => {
+        for (const habilidade of habilidadesExcluidas) {
+            await excluirHabilidade(habilidade)
+        }
+    } 
     
     salvarHabilidadesNovas()
+    excluirHabilidades()
 }
