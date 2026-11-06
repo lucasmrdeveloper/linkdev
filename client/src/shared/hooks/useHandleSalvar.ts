@@ -21,7 +21,13 @@ export const useHandleSalvar = () => {
     const [mensagem, setMensagem] = useState<Mensagem | null>(null)
     const [salvando, setSalvando] = useState(false)
 
-    const { habilidadesNovas, setHabilidadesNovas } = useHabilidadesContexto()
+    const { 
+        habilidadesNovas, 
+        setHabilidadesNovas,
+        
+        habilidadesExcluidas,
+        setHabilidadesExcluidas
+    } = useHabilidadesContexto()
 
     const { perfil, perfilAPI } = usePerfilContexto()
     
@@ -42,7 +48,15 @@ export const useHandleSalvar = () => {
 
         try {
             await salvarPerfil(perfil, perfilAPI)
-            await salvarAlteracoesHabilidades(habilidadesNovas, setHabilidadesNovas, criarHabilidade)
+            await salvarAlteracoesHabilidades(
+                habilidadesNovas, 
+                setHabilidadesNovas, 
+                
+                criarHabilidade,
+
+                habilidadesExcluidas,
+                setHabilidadesExcluidas
+            )
 
             setMensagem({ tipo: "sucesso", mensagem: "Os dados foram salvos." })
         }
