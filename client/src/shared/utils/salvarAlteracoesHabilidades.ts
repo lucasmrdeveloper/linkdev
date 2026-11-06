@@ -12,26 +12,19 @@ export const salvarAlteracoesHabilidades = async (
     habilidadesExcluidas: string[],
     setHabilidadesExcluidas: Dispatch<SetStateAction<string[]>>
 ) => {
-    const salvarHabilidadesNovas = async () => {
-        for (const habilidade of habilidadesNovas) {
-            await criarHabilidade(habilidade)
-    
-            setHabilidadesNovas(atual =>
-                atual.filter(item => item.id !== habilidade.id)
-            )
-        } 
-    }
+    for (const habilidade of habilidadesNovas) {
+        await criarHabilidade(habilidade)
 
-    const excluirHabilidades = async () => {
-        for (const habilidade of habilidadesExcluidas) {
-            await excluirHabilidade(habilidade)
-
-            setHabilidadesExcluidas(atual =>
-                atual.filter(item => item !== habilidade)
-            )
-        }
+        setHabilidadesNovas(atual =>
+            atual.filter(item => item.id !== habilidade.id)
+        )
     } 
-    
-    salvarHabilidadesNovas()
-    excluirHabilidades()
+
+    for (const habilidade of habilidadesExcluidas) {
+        await excluirHabilidade(habilidade)
+
+        setHabilidadesExcluidas(atual =>
+            atual.filter(item => item !== habilidade)
+        )
+    }
 }
