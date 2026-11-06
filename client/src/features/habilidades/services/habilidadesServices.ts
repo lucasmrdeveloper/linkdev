@@ -44,12 +44,10 @@ export const buscarHabilidades = async (): Promise<HabilidadeApi[]> => {
 
 export const excluirHabilidade = async (id: string) => {
     const resposta = await fetch(`${API_URL}/${id}`, {
-        method: "Delete"
+        method: "DELETE"
     })
 
     if (!resposta.ok) {
         throw new Error("Houve um erro ao excluir a habilidade")
     }
-    console.log("=====Excluir=====")
-    console.log("id", id)
 }
