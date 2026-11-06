@@ -2,9 +2,6 @@
 import { useState, useEffect } from "react"
 import usePerfilContexto from "../../features/perfil/hooks/usePerfilContexto"
 
-// Services
-import { criarHabilidade } from "../../features/habilidades/services/habilidadesServices"
-
 // Utils
 import { salvarPerfil } from "../utils/salvarPerfil"
 import { salvarAlteracoesHabilidades } from "../utils/salvarAlteracoesHabilidades"
@@ -51,8 +48,6 @@ export const useHandleSalvar = () => {
             await salvarAlteracoesHabilidades(
                 habilidadesNovas, 
                 setHabilidadesNovas, 
-                
-                criarHabilidade,
 
                 habilidadesExcluidas,
                 setHabilidadesExcluidas

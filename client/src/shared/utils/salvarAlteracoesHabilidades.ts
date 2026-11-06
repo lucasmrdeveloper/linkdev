@@ -1,14 +1,14 @@
 import type { Dispatch, SetStateAction } from "react"
 import type { Habilidade } from "../contexts/habilidadesContext"
 
+import { criarHabilidade } from "../../features/habilidades/services/habilidadesServices"
 import { excluirHabilidade } from "../../features/habilidades/services/habilidadesServices"
+
 
 export const salvarAlteracoesHabilidades = async (
     habilidadesNovas: Habilidade[], 
     setHabilidadesNovas: Dispatch<SetStateAction<Habilidade[]>>, 
-
-    criarHabilidade: (habilidade: Habilidade) => Promise<unknown>,
-
+    
     habilidadesExcluidas: string[],
     setHabilidadesExcluidas: Dispatch<SetStateAction<string[]>>
 ) => {
