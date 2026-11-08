@@ -3,6 +3,16 @@ import LinksModel from "./links.model"
 
 const linksRoutes = Router()
 
+linksRoutes.get("/", async (_, res) => {
+    const links = await LinksModel.find()
+
+    if (!links) {
+        res.status(404).json({ mensagem: "Não existe nenhum link."})
+    }
+
+    return res.json(links)
+})
+
 linksRoutes.post("/", async (req, res) => {
     const { rede, descricao, url } = req.body
 
