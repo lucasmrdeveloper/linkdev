@@ -1,8 +1,8 @@
 import { createContext, type Dispatch, type SetStateAction } from "react"
 
 export type Link = {
+    icone: string,
     nome: string
-    rede: string
     descricao: string
     url: string
 }

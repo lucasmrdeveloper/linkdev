@@ -6,7 +6,7 @@ export const useHandleIcone = () => {
     return (id: string , indice: number) => {
         setLinks(atuais => 
             atuais.map((item, i) => 
-                i === indice ? { ...item, rede: id } : item
+                i === indice ? { ...item, icone: id } : item
             )
         )
     } 
