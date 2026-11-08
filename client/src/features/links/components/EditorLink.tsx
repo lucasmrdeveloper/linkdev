@@ -31,7 +31,7 @@ const EditorLink = ({ indice }: { indice: number }) => {
                     className="link-coluna-nome" 
                     id="nome" 
                     placeholder="Nome do link"
-                    value={links[indice].rede} 
+                    value={links[indice].nome} 
                     onChange={(e) => handleChange(e, indice)}
                 /> 
                 
