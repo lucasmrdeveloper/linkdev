@@ -4,6 +4,7 @@ import { useState } from "react"
 
 import { PerfilContext, type Perfil } from "../shared/contexts/perfilContext"
 import { HabilidadesContext, type Habilidade } from "../shared/contexts/habilidadesContext"
+import { LinksContext, type Link } from "../shared/contexts/linksContext"
 
 import PreviewArea from "../features/preview/PreviewArea"
 
@@ -17,6 +18,7 @@ function App() {
     biografia: ""
   }
 
+
   const [ perfil, setPerfil ] = useState<Perfil>({...camposPerfil})
 
   const [ perfilAPI, setPerfilAPI ] = useState<Perfil>({...camposPerfil})
@@ -24,13 +26,17 @@ function App() {
   const [ habilidadesRascunho, setHabilidadesRascunho ] = useState<Habilidade[]>([])
   const [ habilidadesNovas, setHabilidadesNovas ] = useState<Habilidade[]>([])
   const [ habilidadesExcluidas, setHabilidadesExcluidas ] = useState<string[]>([])
+
+  const [ links, setLinks ] = useState<Link[]>([])
   
   return (
     <main>
         <HabilidadesContext value={{habilidadesRascunho, setHabilidadesRascunho, habilidadesNovas, setHabilidadesNovas, habilidadesExcluidas, setHabilidadesExcluidas}}>
           <PerfilContext value={{perfil, setPerfil, perfilAPI, setPerfilAPI}}>
-              <Sidebar />
-              <PreviewArea />
+              <LinksContext value={{links, setLinks}}>
+                <Sidebar />
+                <PreviewArea />
+              </LinksContext> 
           </PerfilContext>
         </HabilidadesContext>
     </main>
