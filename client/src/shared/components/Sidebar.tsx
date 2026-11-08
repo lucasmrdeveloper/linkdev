@@ -8,12 +8,14 @@ import Habilidades from "../../features/habilidades/components/Habilidades.tsx"
 import Links from "../../features/links/components/Links.tsx"
 
 import "./Sidebar.css"
+import { useBuscarLinks } from "../../features/links/hooks/useBuscarLinks.ts"
 import { useBuscarPerfil } from "../../features/perfil/hooks/useBuscarPerfil.ts"
 import { useBuscarHabilidades } from "../../features/habilidades/hooks/useBuscarHabilidades.ts"
 
 const Sidebar = () => {
     useBuscarPerfil()
     useBuscarHabilidades()
+    useBuscarLinks()
 
     return(
         <aside className="sidebar">
