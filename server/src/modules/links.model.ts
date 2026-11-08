@@ -1,26 +1,33 @@
 import { model, Schema } from "mongoose"
 
 type Link = {
-    rede: string
+    icone: string
+    nome: string
     descricao: string
     url: string
 }
 
 const LinksPadrao: Link[] = [
     {
-        rede: "github",
+        icone: "github",
+        nome: "Github",
         descricao: "Sobre o projeto",
         url: "#"
     },
     {
-        rede: "linkedin",
+        icone: "linkedin",
+        nome: "Linkedin",
         descricao: "Sobre o projeto",
         url: "#"
     }
 ]
 
 const linksSchema = new Schema<Link>({
-    rede: {
+    icone: {
+        type: String,
+        trim: true
+    },
+    nome: {
         type: String,
         trim: true
     },

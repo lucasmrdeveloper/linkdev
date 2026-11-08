@@ -14,18 +14,20 @@ linksRoutes.get("/", async (_, res) => {
 })
 
 linksRoutes.post("/", async (req, res) => {
-    const { rede, descricao, url } = req.body
+    const { icone, nome, descricao, url } = req.body
 
     if (
-        typeof rede !== "string" ||
+        typeof icone !== "string" ||
+        typeof nome !== "string" ||
         typeof descricao !== "string" ||
         typeof url !== "string"
     ) {
-        res.status(400).json({ mensagem: "rede, descricao e url precisam ser strings" })
+        res.status(400).json({ mensagem: "icone, descricao e url precisam ser strings" })
     }
 
     const link = await LinksModel.create({
-        rede,
+        icone,
+        nome,
         descricao,
         url
     })
