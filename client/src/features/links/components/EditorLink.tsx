@@ -15,7 +15,7 @@ const EditorLink = ({ indice }: { indice: number }) => {
     const handleExcluir = useHandleExcluir() 
    
     const IconeSelecionado = iconOptions.find(
-        ({id}) => id === links[indice].rede
+        ({id}) => id === links[indice].icone
     )?.Icon 
  
     return(
