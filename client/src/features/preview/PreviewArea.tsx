@@ -59,7 +59,7 @@ const PreviewArea = () => {
                         return(
                             <div className="preview-link">
                                 <div className="preview-link-itens">
-                                    {Icon && <Icon size={80} color="#fff"/>}
+                                    {Icon && <Icon size={50} color="#fff"/>}
 
                                     <div className="preview-link-item">
                                         <h2 className="preview-link-nome">{p.nome}</h2>
