@@ -7,10 +7,12 @@
 .preview-box{
     color: #fff;
     width: 100%;
+    max-width: 1024px;
     padding: 50px;
     border-radius: 8px;
     background: #0B1521;
     height: 100%;
+    margin: 0 auto;
 }
 
 .preview-conteudo{
