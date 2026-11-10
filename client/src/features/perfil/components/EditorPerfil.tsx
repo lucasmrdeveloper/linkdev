@@ -1,5 +1,6 @@
 import CampoPerfil from "./CampoPerfil"
 import type { CampoPerfilProps } from "../types/CampoPerfilProps"
+import FotoPerfil from "./FotoPerfil"
 
 const camposPerfil = [
     {
@@ -28,6 +29,8 @@ const camposPerfil = [
 const EditorPerfil = () => {
     return (
         <div className="box">
+            <FotoPerfil />
+            
             {camposPerfil.map(configuracao => (
                 <CampoPerfil
                     key={configuracao.campo}
