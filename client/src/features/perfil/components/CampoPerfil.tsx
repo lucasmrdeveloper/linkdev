@@ -1,9 +1,9 @@
 import type { CampoPerfilProps } from "../types/CampoPerfilProps"
-import { useHandleChange } from "../hooks/useHandleChange"
+import { useHandleChangeCampos } from "../hooks/useHandleChangeCampos"
 import "../../../shared/styles/forms.css"
 
 const CampoPerfil = ({ label, placeholder, campo, tipo }: CampoPerfilProps ) => {
-    const { perfil, handleChange } = useHandleChange(campo)
+    const { perfil, handleChangeCampo } = useHandleChangeCampos(campo)
     const valor = perfil[campo]
 
     return(
@@ -15,7 +15,7 @@ const CampoPerfil = ({ label, placeholder, campo, tipo }: CampoPerfilProps ) => 
                     id={campo}
                     value={valor}
                     placeholder={placeholder}
-                    onChange={handleChange}
+                    onChange={handleChangeCampo}
                     required
                 />
             ) : (
@@ -24,7 +24,7 @@ const CampoPerfil = ({ label, placeholder, campo, tipo }: CampoPerfilProps ) => 
                     type="text"
                     value={valor}
                     placeholder={placeholder}
-                    onChange={handleChange}
+                    onChange={handleChangeCampo}
                     required
                 />
             )}  
