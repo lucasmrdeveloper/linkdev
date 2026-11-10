@@ -70,4 +70,14 @@ linksRoutes.post("/", async (req, res) => {
     return res.status(200).json({link})
 })
 
+linksRoutes.delete("/:id", async (req, res) => {
+    const link = await LinksModel.findByIdAndDelete(req.params.id)
+
+    if (!link) {
+        return res.status(404).json({ mensagem: "O id não foi encontrado" })
+    }
+
+    return res.status(204).send()
+})
+
 export default linksRoutes
