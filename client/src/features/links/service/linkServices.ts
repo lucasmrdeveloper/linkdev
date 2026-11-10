@@ -32,3 +32,21 @@ export const atualizarLinks = async (
 
     return await resposta.json()
 }
+
+export const criarLinks = async (link: Link) => {
+    const resposta = await fetch(API_URL, {
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify(link)
+    })
+
+    if (!resposta.ok) {
+        throw new Error("Não foi possível criar uma nova habilidade.")
+    }
+
+    return await resposta.json()
+}
