@@ -5,9 +5,11 @@ import usePerfilContexto from "../../features/perfil/hooks/usePerfilContexto"
 // Utils
 import { salvarPerfil } from "../utils/salvarPerfil"
 import { salvarAlteracoesHabilidades } from "../utils/salvarAlteracoesHabilidades"
+import { salvarLinks } from "../utils/salvarLinks"
 
 // Contexts
 import { useHabilidadesContexto } from "../../features/habilidades/hooks/useHabilidadesContexto"
+import { useLinkContexto } from "../../features/links/hooks/useLinkContexto"
 
 type Mensagem = {
     tipo: "sucesso" | "erro"
@@ -27,6 +29,7 @@ export const useHandleSalvar = () => {
     } = useHabilidadesContexto()
 
     const { perfil, perfilAPI } = usePerfilContexto()
+    const { links, linksAPI } = useLinkContexto()
     
 
     useEffect(() => {
@@ -52,6 +55,7 @@ export const useHandleSalvar = () => {
                 habilidadesExcluidas,
                 setHabilidadesExcluidas
             )
+            await salvarLinks(links, linksAPI)
 
             setMensagem({ tipo: "sucesso", mensagem: "Os dados foram salvos." })
         }
