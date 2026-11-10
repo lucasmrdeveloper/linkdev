@@ -1,11 +1,16 @@
 import usePerfilContexto from "../perfil/hooks/usePerfilContexto"
 import { useHabilidadesContexto } from "../habilidades/hooks/useHabilidadesContexto"
 import { useBuscarPerfil } from "../perfil/hooks/useBuscarPerfil"
+
+import { useLinkContexto } from "../links/hooks/useLinkContexto"
+import { iconOptions } from "../links/utils/icones"
+
 import"./PreviewArea.css"
 
 const PreviewArea = () => {
     const { perfil } = usePerfilContexto()
     const { habilidadesRascunho } = useHabilidadesContexto()
+    const { links } = useLinkContexto()
     const { carregamentoPerfil, erro } = useBuscarPerfil()
 
     const {
@@ -14,7 +19,6 @@ const PreviewArea = () => {
         localidade,
         biografia
     } = perfil ?? {}
-
 
     return(  
         <div className="preview-container">
@@ -44,6 +48,31 @@ const PreviewArea = () => {
                         </ul>  
                     </>
                 )}
+
+
+                <div className="preview-links">
+                    {links && (links.map(p => {
+
+                        const option = iconOptions.find(({id}) => id === p.icone )
+                        const Icon = option?.Icon
+
+                        return(
+                            <div className="preview-link">
+                                <div className="preview-link-itens">
+                                    {Icon && <Icon size={80} color="#fff"/>}
+
+                                    <div className="preview-link-item">
+                                        <h2 className="preview-link-nome">{p.nome}</h2>
+                                        <p className="preview-link-descricao">{p.descricao}</p>
+                                    </div>
+                                </div>
+
+                                <img src="/seta-link.svg" alt="" />
+                            </div>
+                        )
+                    }))} 
+
+                </div>
             </div>
         </div>
     ) 
