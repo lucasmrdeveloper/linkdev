@@ -1,6 +1,14 @@
-import { useState, useEffect, type ChangeEvent } from "react"
+import { 
+    useState, 
+    useEffect, 
+    type ChangeEvent,
+    type Dispatch,
+    type SetStateAction 
+} from "react"
 
-export const useHandleChangeFoto = (setPreview) => {
+export const useHandleChangeFoto = (
+    setPreview: Dispatch<SetStateAction<string>>
+) => {
     const [arquivo, setArquivo] = useState<File | null>(null)
 
     useEffect(() => {
