@@ -2,7 +2,7 @@ import type { Link } from "../contexts/linksContext"
 import { 
     atualizarLinks, 
     criarLinks, 
-    excluirHabilidades } 
+    excluirLinks } 
 from "../../features/links/service/linkServices"
 
 
@@ -47,6 +47,6 @@ export const salvarLinks = async (links: Link[], linksAPI: Link[]) => {
         if (!link._id) continue
 
         console.log("for link._id", link._id)
-        await excluirHabilidades(link._id)
+        await excluirLinks(link._id)
     }
 }
