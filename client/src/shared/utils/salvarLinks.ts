@@ -1,7 +1,10 @@
 import type { Link } from "../contexts/linksContext"
 import { atualizarLinks } from "../../features/links/service/linkServices"
+import { criarLinks } from "../../features/links/service/linkServices"
 
 export const salvarLinks = async (links: Link[], linksAPI: Link[]) => {
+    const linksNovos = links.filter(link => !link._id)
+
     const linksAlterados = links.filter(link => {
         if (!link._id) return false
 
@@ -26,5 +29,9 @@ export const salvarLinks = async (links: Link[], linksAPI: Link[]) => {
             descricao: link.descricao,
             url: link.url
         })
+    }
+
+    for(const link of linksNovos) {
+        await criarLinks(link)
     }
 }
