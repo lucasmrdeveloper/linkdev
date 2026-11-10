@@ -6,7 +6,7 @@
 
 .preview-box{
     color: #fff;
-    width: 900px;
+    width: 100%;
     padding: 50px;
     border-radius: 8px;
     height: 100%;
@@ -31,12 +31,13 @@
 
 .preview-biografia{
     color: #A9BDD8;
-    width: 400px; 
+    width: 100%; 
     text-align: center;
     margin-bottom: 20px;
 }
 
 .preview-habilidades{
+    width: 100%;
     display: flex;
     gap: 8px;
     margin-bottom: 40px;
@@ -50,7 +51,7 @@
 }
 
 .preview-links{
-    width: 600px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 12px;
