@@ -7,12 +7,17 @@ export type Perfil = {
     biografia: string
 }
 
+export type FotoPerfil = File | null
+
 type PerfilContextValue = {
     perfil: Perfil,
     setPerfil: Dispatch<SetStateAction<Perfil>>
 
     perfilAPI: Perfil,
     setPerfilAPI: Dispatch<SetStateAction<Perfil>>
+
+    fotoPerfil: FotoPerfil,
+    setFotoPerfil: Dispatch<SetStateAction<FotoPerfil>>
 }
 
 export const PerfilContext = createContext<PerfilContextValue | null>(null)
