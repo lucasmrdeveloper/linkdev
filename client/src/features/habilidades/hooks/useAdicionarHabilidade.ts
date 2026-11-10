@@ -3,7 +3,7 @@ import type { SubmitEvent } from "react"
 
 export const useAdicionarHabilidade = (habilidade:string, setHabilidade:(valor: string) => void) => {
 
-    const { setHabilidadesRascunho, setHabilidadesNovas } = useHabilidadesContexto()
+    const { setHabilidades, setHabilidadesNovas } = useHabilidadesContexto()
  
     return (e: SubmitEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -13,7 +13,7 @@ export const useAdicionarHabilidade = (habilidade:string, setHabilidade:(valor: 
             nome: habilidade
         }
     
-        setHabilidadesRascunho(atual => [...atual, novaHabilidade])
+        setHabilidades(atual => [...atual, novaHabilidade])
         setHabilidadesNovas(atual => [...atual, novaHabilidade]) 
         setHabilidade("")
     }

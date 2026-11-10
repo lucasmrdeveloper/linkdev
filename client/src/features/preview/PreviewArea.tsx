@@ -9,7 +9,7 @@ import"./PreviewArea.css"
 
 const PreviewArea = () => {
     const { perfil } = usePerfilContexto()
-    const { habilidadesRascunho } = useHabilidadesContexto()
+    const { habilidades } = useHabilidadesContexto()
     const { links } = useLinkContexto()
     const { carregamentoPerfil, erro } = useBuscarPerfil()
 
@@ -43,7 +43,7 @@ const PreviewArea = () => {
                             <p className="preview-biografia">{biografia}</p>
 
                             <ul className="preview-habilidades">
-                                {habilidadesRascunho && (habilidadesRascunho.map(habilidade => (
+                                {habilidades && (habilidades.map(habilidade => (
                                     <li className="preview-habilidade">{habilidade.nome}</li>
                                 )))} 
                             </ul>  

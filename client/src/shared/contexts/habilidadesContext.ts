@@ -6,8 +6,8 @@ export type Habilidade = {
 }
 
 type habilidadesValue = {
-    habilidadesRascunho: Habilidade[],
-    setHabilidadesRascunho: Dispatch<SetStateAction<Habilidade[]>>
+    habilidades: Habilidade[],
+    setHabilidades: Dispatch<SetStateAction<Habilidade[]>>
 
     habilidadesNovas: Habilidade[],
     setHabilidadesNovas: Dispatch<SetStateAction<Habilidade[]>>

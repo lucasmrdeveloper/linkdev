@@ -9,8 +9,8 @@ export const useHabilidadesContexto = () => {
     }
 
     return {
-        habilidadesRascunho: contexto.habilidadesRascunho,
-        setHabilidadesRascunho: contexto.setHabilidadesRascunho,
+        habilidades: contexto.habilidades,
+        setHabilidades: contexto.setHabilidades,
         habilidadesNovas: contexto.habilidadesNovas,
         setHabilidadesNovas: contexto.setHabilidadesNovas,
         habilidadesExcluidas: contexto.habilidadesExcluidas,

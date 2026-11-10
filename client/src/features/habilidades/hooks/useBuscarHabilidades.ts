@@ -4,14 +4,14 @@ import { buscarHabilidades } from "../services/habilidadesServices"
 
 
 export const useBuscarHabilidades = () => {
-    const { setHabilidadesRascunho } = useHabilidadesContexto()
+    const { setHabilidades } = useHabilidadesContexto()
     
     useEffect(() => {
         const carregarHabilidades = async () => {
             try{
                 const dados = await buscarHabilidades()
 
-                setHabilidadesRascunho(
+                setHabilidades(
                     dados.map(habilidade => ({
                         nome: habilidade.nome,
                         id: habilidade._id

@@ -23,7 +23,7 @@ function App() {
 
   const [ perfilAPI, setPerfilAPI ] = useState<Perfil>({...camposPerfil})
     
-  const [ habilidadesRascunho, setHabilidadesRascunho ] = useState<Habilidade[]>([])
+  const [ habilidades, setHabilidades ] = useState<Habilidade[]>([])
   const [ habilidadesNovas, setHabilidadesNovas ] = useState<Habilidade[]>([])
   const [ habilidadesExcluidas, setHabilidadesExcluidas ] = useState<string[]>([])
 
@@ -33,7 +33,7 @@ function App() {
   
   return (
     <main>
-        <HabilidadesContext value={{habilidadesRascunho, setHabilidadesRascunho, habilidadesNovas, setHabilidadesNovas, habilidadesExcluidas, setHabilidadesExcluidas}}>
+        <HabilidadesContext value={{habilidades, setHabilidades, habilidadesNovas, setHabilidadesNovas, habilidadesExcluidas, setHabilidadesExcluidas}}>
           <PerfilContext value={{perfil, setPerfil, perfilAPI, setPerfilAPI}}>
               <LinksContext value={{links, setLinks, linksAPI, setLinksAPI}}>
                 <Sidebar />
