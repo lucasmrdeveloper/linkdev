@@ -57,7 +57,7 @@ linksRoutes.post("/", async (req, res) => {
         typeof descricao !== "string" ||
         typeof url !== "string"
     ) {
-        res.status(400).json({ mensagem: "icone, descricao e url precisam ser strings" })
+        return res.status(400).json({ mensagem: "icone, descricao e url precisam ser strings" })
     }
 
     const link = await LinksModel.create({
