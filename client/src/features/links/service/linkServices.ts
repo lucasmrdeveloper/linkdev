@@ -50,3 +50,13 @@ export const criarLinks = async (link: Link) => {
 
     return await resposta.json()
 }
+
+export const excluirLinks = async (id: string) => {
+    const resposta = await fetch(`${API_URL}/${id}`, {
+        method: "DELETE"
+    })
+
+    if (!resposta.ok) {
+        throw new Error("Nao foi possível exclui o link.")
+    }
+} 
