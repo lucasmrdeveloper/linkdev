@@ -54,7 +54,6 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 100px;
 
     .preview-link{
         display: flex;
