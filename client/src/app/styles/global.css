@@ -23,7 +23,12 @@ ul{
     display: flex;
     gap: 10px;
 }
+
 ul li{
     color: #fff;
     list-style: none;
 } 
+
+button{
+    cursor: pointer;
+}
