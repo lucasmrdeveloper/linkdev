@@ -28,12 +28,14 @@ function App() {
   const [ habilidadesExcluidas, setHabilidadesExcluidas ] = useState<string[]>([])
 
   const [ links, setLinks ] = useState<Link[]>([])
+  const [ linksAPI, setLinksAPI ] = useState<Link[]>([])
+
   
   return (
     <main>
         <HabilidadesContext value={{habilidadesRascunho, setHabilidadesRascunho, habilidadesNovas, setHabilidadesNovas, habilidadesExcluidas, setHabilidadesExcluidas}}>
           <PerfilContext value={{perfil, setPerfil, perfilAPI, setPerfilAPI}}>
-              <LinksContext value={{links, setLinks}}>
+              <LinksContext value={{links, setLinks, linksAPI, setLinksAPI}}>
                 <Sidebar />
                 <PreviewArea />
               </LinksContext> 
