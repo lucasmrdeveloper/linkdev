@@ -12,7 +12,7 @@ import {
     buscarPerfil,
     criarPerfil,
     editarPerfil 
-} from "../perfil.controller"
+} from "./perfil.controller"
 
 const perfilRoutes = Router()
 
