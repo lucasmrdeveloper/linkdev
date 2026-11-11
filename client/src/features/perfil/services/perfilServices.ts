@@ -2,6 +2,22 @@ import type { Perfil } from "../../../shared/contexts/perfilContext"
 
 const API_URL = "http://localhost:8000/api/perfil"
 
+export const criarFoto = async (foto: File) => {
+    const dados = new FormData()
+    dados.append("foto", foto)
+
+    const resposta = await fetch(`${API_URL}/foto`, {
+        method: "POST",
+        body: dados
+    }) 
+
+    if (!resposta.ok) {
+        throw new Error("Não foi possível enviar a foto.")
+    }
+
+    return resposta.json()
+}
+
 export const buscarPerfil = async () => {
     const resposta = await fetch(API_URL) 
 
