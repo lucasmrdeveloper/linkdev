@@ -8,9 +8,6 @@ type HabilidadeApi = {
 }
 
 export const criarHabilidade = async (habilidades)=> {
-    console.log("=====criarHabilidaes=====")
-    console.log("habilidades", habilidades)
-
     const resposta = await fetch(API_URL, {
         method: "POST",
 

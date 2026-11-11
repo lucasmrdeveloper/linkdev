@@ -45,8 +45,7 @@ export const salvarLinks = async (links: Link[], linksAPI: Link[]) => {
 
     for (const link of linksExcluidos) {
         if (!link._id) continue
-
-        console.log("for link._id", link._id)
+        
         await excluirLinks(link._id)
     }
 }
