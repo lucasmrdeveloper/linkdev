@@ -1,15 +1,14 @@
-import { useHabilidadesContexto } from "../habilidades/hooks/useHabilidadesContexto"
 import { useBuscarPerfil } from "../perfil/hooks/useBuscarPerfil"
 
 import { useLinkContexto } from "../links/hooks/useLinkContexto"
 import { iconOptions } from "../links/utils/icones"
 
 import"./PreviewArea.css"
+
 import PreviewPerfil from "./PreviewPerfil"
+import HabilidadesPreview from "./HabilidadesPreview"
 
 const PreviewArea = () => {
-
-    const { habilidades } = useHabilidadesContexto()
     const { links } = useLinkContexto()
     const { carregamentoPerfil, erro } = useBuscarPerfil()
 
@@ -19,12 +18,9 @@ const PreviewArea = () => {
                 <div className="preview-conteudo">
                     
                     <PreviewPerfil />
+                    <HabilidadesPreview />
 
-                    <ul className="preview-habilidades">
-                        {habilidades && (habilidades.map(habilidade => (
-                            <li className="preview-habilidade">{habilidade.nome}</li>
-                        )))} 
-                    </ul>  
+                    
 
                     <div className="preview-links">
                         {links && (links.map(p => {
