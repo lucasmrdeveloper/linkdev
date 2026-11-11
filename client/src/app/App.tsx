@@ -6,7 +6,7 @@ import { PerfilContext, type Perfil, type FotoPerfil } from "../shared/contexts/
 import { HabilidadesContext, type Habilidade } from "../shared/contexts/habilidadesContext"
 import { LinksContext, type Link } from "../shared/contexts/linksContext"
 
-import PreviewArea from "../features/preview/PreviewArea"
+import Preview from "../features/preview/Preview"
 
 import "./styles/global.css"
 
@@ -36,7 +36,7 @@ function App() {
           <PerfilContext value={{perfil, setPerfil, perfilAPI, setPerfilAPI, fotoPerfil, setFotoPerfil}}>
               <LinksContext value={{links, setLinks, linksAPI, setLinksAPI}}>
                 <Sidebar />
-                <PreviewArea />
+                <Preview />
               </LinksContext> 
           </PerfilContext>
         </HabilidadesContext>

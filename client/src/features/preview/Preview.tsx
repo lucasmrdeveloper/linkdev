@@ -3,12 +3,12 @@ import { useBuscarPerfil } from "../perfil/hooks/useBuscarPerfil"
 import { useLinkContexto } from "../links/hooks/useLinkContexto"
 import { iconOptions } from "../links/utils/icones"
 
-import"./PreviewArea.css"
+import"./Preview.css"
 
 import PerfilPreview from "./PerfilPreview"
 import HabilidadesPreview from "./HabilidadesPreview"
 
-const PreviewArea = () => {
+const Preview = () => {
     const { links } = useLinkContexto()
     const { carregamentoPerfil, erro } = useBuscarPerfil()
 
@@ -51,4 +51,4 @@ const PreviewArea = () => {
     ) 
 }
 
-export default PreviewArea
+export default Preview
