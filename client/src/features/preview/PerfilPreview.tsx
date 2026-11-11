@@ -1,6 +1,6 @@
 import usePerfilContexto from "../perfil/hooks/usePerfilContexto"
 
-const PreviewPerfil = () => {
+const PerfilPreview = () => {
     const { perfil } = usePerfilContexto()
 
     const {
@@ -27,4 +27,4 @@ const PreviewPerfil = () => {
     )
 }
 
-export default PreviewPerfil
+export default PerfilPreview

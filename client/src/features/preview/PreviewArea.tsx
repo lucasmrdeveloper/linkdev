@@ -5,7 +5,7 @@ import { iconOptions } from "../links/utils/icones"
 
 import"./PreviewArea.css"
 
-import PreviewPerfil from "./PreviewPerfil"
+import PerfilPreview from "./PerfilPreview"
 import HabilidadesPreview from "./HabilidadesPreview"
 
 const PreviewArea = () => {
@@ -17,7 +17,7 @@ const PreviewArea = () => {
             <div className="preview-box">
                 <div className="preview-conteudo">
                     
-                    <PreviewPerfil />
+                    <PerfilPreview />
                     <HabilidadesPreview />
 
                     
