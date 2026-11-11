@@ -7,7 +7,13 @@ import { GridFSBucket } from "mongodb"
 import { Readable } from "node:stream"
 import { pipeline } from "node:stream/promises"
 
+
+import { buscarPerfil } from "./perfil.controller"
+
 const perfilRoutes = Router()
+
+perfilRoutes.get("/", buscarPerfil)
+
 const upload = multer({
     storage: multer.memoryStorage(),
     limits: { fileSize: 5 * 1024 * 1024 }
