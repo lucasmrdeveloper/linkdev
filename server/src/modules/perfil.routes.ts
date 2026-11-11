@@ -87,6 +87,36 @@ perfilRoutes.post("/", async (req, res) => {
     return res.status(201).json(perfil)
 })
 
+perfilRoutes.get("/foto", async (_req, res) => {
+    const perfil = await PerfilModel.findOne().select("fotoId")
+
+    if (!perfil?.fotoId) {
+        return res.status(404).json({ mensagem: "Foto não encontrada." })
+    }
+
+    const db = mongoose.connection.db
+    if (!db) {
+        throw new Error("Banco de dados não conectado.")
+    }
+
+    const bucket = new GridFSBucket(db, { bucketName: "fotos" })
+    const arquivo = await bucket.find({ _id: perfil.fotoId }).next()
+
+    if (!arquivo) {
+        return res.status(404).json({ mensagem: "Arquivo da foto não encontrado." })
+    }
+
+    const contentType = arquivo.metadata?.contentType
+    if (typeof contentType !== "string" || !contentType.startsWith("image/")) {
+        return res.status(415).json({ mensagem: "Formato de imagem inválido." })
+    }
+
+    res.setHeader("Content-Type", contentType)
+    res.setHeader("X-Content-Type-Options", "nosniff")
+
+    await pipeline(bucket.openDownloadStream(arquivo._id), res)
+})
+
 perfilRoutes.put("/", async (req, res) => {
     const { nome, especialidade, localidade, biografia } = req.body ?? {}
 
