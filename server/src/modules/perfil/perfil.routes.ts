@@ -25,19 +25,6 @@ const upload = multer({
     limits: { fileSize: 5 * 1024 * 1024 }
 })
 
-
-perfilRoutes.get("/", async (_req, res) => {
-    const perfil = await PerfilModel.findOne()
-
-    if (!perfil) {
-        return res.status(404).json({
-            mensagem: "Perfil não existe"
-        })
-    }
-
-    return res.json(perfil)
-})
-
 perfilRoutes.post("/foto", upload.single("foto"), async (req,res) => {
     console.log("req", req)
 
