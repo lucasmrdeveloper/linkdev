@@ -1,31 +1,32 @@
-import { 
-    useState, 
+import {
     useEffect, 
     type ChangeEvent,
     type Dispatch,
     type SetStateAction 
 } from "react"
 
+import usePerfilContexto from "./usePerfilContexto"
+
 export const useHandleChangeFoto = (
     setPreview: Dispatch<SetStateAction<string>>
 ) => {
-    const [arquivo, setArquivo] = useState<File | null>(null)
+    const { fotoPerfil, setFotoPerfil } = usePerfilContexto()
 
     useEffect(() => {
-        if (!arquivo) {
+        if (!fotoPerfil) {
             setPreview("/user.png")
             return
         }
 
-        const url = URL.createObjectURL(arquivo)
+        const url = URL.createObjectURL(fotoPerfil)
         setPreview(url)
 
         return () => URL.revokeObjectURL(url)
-    }, [arquivo]) 
+    }, [fotoPerfil]) 
 
     return (e: ChangeEvent<HTMLInputElement>) => {
         const selecionado = e.target.files?.[0]
     
-        if (selecionado) setArquivo(selecionado)
+        if (selecionado) setFotoPerfil(selecionado)
     }
 }
