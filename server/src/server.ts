@@ -2,7 +2,7 @@ import dotenv from "dotenv"
 import app from "./app"
 dotenv.config()
 import connectDB from ".././config/database.ts"
-import PerfilModel, {perfilPadrao} from "./modules/perfil.model.ts"
+import PerfilModel, {perfilPadrao} from "./modules/perfil/perfil.model.ts"
 import HabilidadeModel, {habilidadesPadrao} from "./modules/habilidades.model.ts"
 
 const port = process.env.PORT
