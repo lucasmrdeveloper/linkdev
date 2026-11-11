@@ -1,5 +1,5 @@
 import { Router } from "express"
-import PerfilModel from "./perfil.model"
+import PerfilModel from "../perfil.model"
 
 import multer from "multer"
 import mongoose from "mongoose"
@@ -12,7 +12,7 @@ import {
     buscarPerfil,
     criarPerfil,
     editarPerfil 
-} from "./perfil.controller"
+} from "../perfil.controller"
 
 const perfilRoutes = Router()
 

@@ -1,5 +1,5 @@
 import type { Request, Response } from "express"
-import PerfilModel from "./perfil.model"
+import PerfilModel from "../perfil.model"
 
 export const buscarPerfil = async (_req: Request, res: Response) => {
     const perfil = await PerfilModel.findOne()
