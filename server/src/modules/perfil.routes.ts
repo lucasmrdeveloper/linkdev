@@ -8,11 +8,15 @@ import { Readable } from "node:stream"
 import { pipeline } from "node:stream/promises"
 
 
-import { buscarPerfil } from "./perfil.controller"
+import {
+    buscarPerfil,
+    criarPerfil 
+} from "./perfil.controller"
 
 const perfilRoutes = Router()
 
 perfilRoutes.get("/", buscarPerfil)
+perfilRoutes.post("/", criarPerfil)
 
 const upload = multer({
     storage: multer.memoryStorage(),
@@ -67,30 +71,6 @@ perfilRoutes.post("/foto", upload.single("foto"), async (req,res) => {
     await perfil.save()
 
     return res.status(201).json({ fotoId: stream.id })
-})
-
-perfilRoutes.post("/", async (req, res) => {
-    const { nome, especialidade, localidade, biografia } = req.body ?? {}
-
-    if (
-        typeof nome !== "string" ||
-        typeof especialidade !== "string" ||
-        typeof localidade !== "string" ||
-        typeof biografia !== "string"
-    ) {
-        return res.status(400).json({
-            mensagem: "nome, especialidade, localidade e biografia precisam ser strings"
-        })
-    }
-
-    const perfil = await PerfilModel.create({
-        nome,
-        especialidade,
-        localidade,
-        biografia
-    })
-
-    return res.status(201).json(perfil)
 })
 
 perfilRoutes.get("/foto", async (_req, res) => {
