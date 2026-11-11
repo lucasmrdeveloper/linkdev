@@ -28,7 +28,7 @@ export const useHandleSalvar = () => {
         setHabilidadesExcluidas
     } = useHabilidadesContexto()
 
-    const { perfil, perfilAPI } = usePerfilContexto()
+    const { perfil, perfilAPI, fotoPerfil } = usePerfilContexto()
     const { links, linksAPI } = useLinkContexto()
     
 
@@ -47,7 +47,7 @@ export const useHandleSalvar = () => {
         setMensagem(null)
 
         try {
-            await salvarPerfil(perfil, perfilAPI)
+            await salvarPerfil(perfil, perfilAPI, fotoPerfil)
             await salvarAlteracoesHabilidades(
                 habilidadesNovas, 
                 setHabilidadesNovas, 
