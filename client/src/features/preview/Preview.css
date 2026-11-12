@@ -37,7 +37,7 @@
 
 .preview-box{
     color: #fff;
-    width: 100%;
+    width: calc(100% - 80px);
     max-width: 1024px;
     padding: 50px;
     border-radius: 8px;
