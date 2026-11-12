@@ -1,4 +1,4 @@
-import usePerfilContexto from "../perfil/hooks/usePerfilContexto"
+import usePerfilContexto from "../../perfil/hooks/usePerfilContexto"
 import "./styles/PerfilPreview.css"
 
 const PerfilPreview = () => {

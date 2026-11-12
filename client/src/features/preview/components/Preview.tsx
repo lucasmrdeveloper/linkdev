@@ -1,6 +1,6 @@
-import { useBuscarPerfil } from "../perfil/hooks/useBuscarPerfil"
+import { useBuscarPerfil } from "../../perfil/hooks/useBuscarPerfil"
 
-import { useHandleBreakpoints } from "./hooks/useHandleBreakpoints"
+import { useHandleBreakpoints } from "../hooks/useHandleBreakpoints"
 import BreakpointsPreview from "./BreakpointsPreview"
 import PerfilPreview from "./PerfilPreview"
 import HabilidadesPreview from "./HabilidadesPreview"

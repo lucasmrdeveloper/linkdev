@@ -1,4 +1,4 @@
-import { useHabilidadesContexto } from "../habilidades/hooks/useHabilidadesContexto"
+import { useHabilidadesContexto } from "../../habilidades/hooks/useHabilidadesContexto"
 import "./styles/HabilidadesPreview.css"
 
 const HabilidadesPreview = () => {

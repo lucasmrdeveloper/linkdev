@@ -6,7 +6,7 @@ import { PerfilContext, type Perfil, type FotoPerfil } from "../shared/contexts/
 import { HabilidadesContext, type Habilidade } from "../shared/contexts/habilidadesContext"
 import { LinksContext, type Link } from "../shared/contexts/linksContext"
 
-import Preview from "../features/preview/Preview"
+import Preview from "../features/preview/components/Preview"
 
 import "./styles/global.css"
 
