@@ -4,39 +4,6 @@
     height: 100%;
 }
 
-.preview-breakpoints{
-    position: sticky;
-    top: 0;
-    padding: 15px 30px;
-    background-color: #fff;
-
-    .preview-breakpoints-icones{
-        border-radius: 5px;
-        display: flex;
-        gap: 5px;
-        width: max-content;
-    }
-
-    .preview-breakpoints-icone-fundo{
-        display: flex;
-        align-items: center;
-        padding: 5px;
-    }
-
-    .preview-breakpoints-icone-fundo.ativo{
-        background-color: #5039F6;
-        border-radius: 5px;
-    }
-
-    .preview-breakpoints-icone-fundo.ativo img{
-        filter: brightness(0) invert(1);
-    }
-
-    .preview-breakpoints-icone{
-        cursor: pointer;
-    }
-}
-
 .preview-box{
     color: #fff;
     width: calc(100% - 80px);
