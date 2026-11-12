@@ -1,6 +1,6 @@
 import { useLinkContexto } from "../../links/hooks/useLinkContexto"
 import { iconOptions } from "../../links/utils/icones"
-import "./styles/LinksPreview.css"
+import "../styles/LinksPreview.css"
 
 const LinksPreview = () => {
     const { links } = useLinkContexto()

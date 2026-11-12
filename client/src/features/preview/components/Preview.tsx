@@ -8,7 +8,7 @@ import LinksPreview from "./LinksPreview"
 
 import { useRef, type MouseEvent } from "react"
 
-import "./styles/Preview.css"
+import "../styles/Preview.css"
 
 const Preview = () => {
     const { carregamentoPerfil, erro } = useBuscarPerfil()

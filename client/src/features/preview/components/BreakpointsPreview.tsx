@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "./styles/BreakPointsPreview.css"
+import "../styles/BreakPointsPreview.css"
 
 const campos = [
     {
