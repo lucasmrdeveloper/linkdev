@@ -1,0 +1,17 @@
+.preview-nome,
+.preview-especialidade{
+    margin-bottom: 5px;
+}
+
+.preview-localizacao{
+    display: flex; 
+    gap: 5px; 
+    margin-bottom: 20px;
+}
+
+.preview-biografia{
+    color: #A9BDD8;
+    width: 100%; 
+    text-align: center;
+    margin-bottom: 20px;
+}
