@@ -25,30 +25,3 @@
     flex-direction: column;
     margin: 0 auto;
 }
-
-.preview-links{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-    .preview-link{
-        display: flex;
-        background-color: #18212d;
-        border: 2px solid #233243;
-        justify-content: space-between;
-        align-items: center;
-        border-radius: 20px;
-        padding: 20px;
-        cursor: pointer;
-    }
-
-    .preview-link-itens{
-        display: flex;
-        gap: 20px;
-    }
-
-    .preview-link-item{
-        align-self: center;
-    }
-}
