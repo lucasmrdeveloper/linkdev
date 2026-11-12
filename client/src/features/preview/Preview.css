@@ -42,8 +42,8 @@
     padding: 50px;
     border-radius: 8px;
     background: #0B1521;
-    height: 100%;
-    margin: 0 auto;
+    height: 100vh;
+    margin: 40px auto;
 }
 
 .preview-conteudo{
