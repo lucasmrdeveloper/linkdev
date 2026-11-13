@@ -8,10 +8,6 @@ import {
 export const buscarLinks = async (_req: Request, res: Response) => {
     const links = await buscarLinksService()
 
-    if (!links) {
-        res.status(404).json({ mensagem: "Não existe nenhum link."})
-    }
-    
     return res.json(links)
 }
 
