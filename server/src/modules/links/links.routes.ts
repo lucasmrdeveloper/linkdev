@@ -2,12 +2,14 @@ import { Router } from "express"
 import LinksModel from "./links.model"
 
 import { 
-    buscarLinks
+    buscarLinks,
+    criarLink
 } from "./links.controller"
 
 const linksRoutes = Router()
 
 linksRoutes.get("/", buscarLinks)
+linksRoutes.post("/", criarLink)
 
 linksRoutes.patch("/:id", async (req, res) => {
     const camposPermitidos = ["icone", "nome", "descricao", "url"] as const
@@ -42,28 +44,6 @@ linksRoutes.patch("/:id", async (req, res) => {
     }
 
     return res.json(link)
-})
-
-linksRoutes.post("/", async (req, res) => {
-    const { icone, nome, descricao, url } = req.body
-
-    if (
-        typeof icone !== "string" ||
-        typeof nome !== "string" ||
-        typeof descricao !== "string" ||
-        typeof url !== "string"
-    ) {
-        return res.status(400).json({ mensagem: "icone, descricao e url precisam ser strings" })
-    }
-
-    const link = await LinksModel.create({
-        icone,
-        nome,
-        descricao,
-        url
-    })
-
-    return res.status(200).json({link})
 })
 
 linksRoutes.delete("/:id", async (req, res) => {
