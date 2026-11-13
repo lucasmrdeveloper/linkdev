@@ -2,7 +2,8 @@ import type { Request, Response } from "express"
 import PerfilModel from "./perfil.model"
 
 import { 
-    buscarPerfilService 
+    buscarPerfilService,
+    criarPerfilService
 } from "./perfil.service"
 
 export const buscarPerfil = async (_req: Request, res: Response) => {
@@ -31,13 +32,7 @@ export const criarPerfil = async (req: Request, res: Response) => {
         })
     }
 
-    const perfil = await PerfilModel.create({
-        nome,
-        especialidade,
-        localidade,
-        biografia
-    })
-
+    const perfil = await criarPerfilService(req.body)
     return res.status(201).json(perfil)
 }
 
