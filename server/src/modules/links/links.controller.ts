@@ -2,7 +2,8 @@ import { Request, Response } from "express"
 import LinksModel from "./links.model"
 
 import { 
-    buscarLinksService
+    buscarLinksService,
+    criarLinkService
 } from "./links.service"
 
 export const buscarLinks = async (_req: Request, res: Response) => {
@@ -23,13 +24,7 @@ export const criarLink = async (req: Request, res: Response) => {
         return res.status(400).json({ mensagem: "icone, descricao e url precisam ser strings" })
     }
 
-    const link = await LinksModel.create({
-        icone,
-        nome,
-        descricao,
-        url
-    })
-    
+    const link = criarLinkService(req.body)
     return res.status(200).json({link})
 }
 

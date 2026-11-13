@@ -1,6 +1,6 @@
 import { model, Schema } from "mongoose"
 
-type Link = {
+export type Link = {
     icone: string
     nome: string
     descricao: string
