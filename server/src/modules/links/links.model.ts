@@ -7,7 +7,7 @@ type Link = {
     url: string
 }
 
-const LinksPadrao: Link[] = [
+export const LinksPadrao: Link[] = [
     {
         icone: "github",
         nome: "Github",

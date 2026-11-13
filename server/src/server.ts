@@ -4,6 +4,7 @@ dotenv.config()
 import connectDB from ".././config/database.ts"
 import PerfilModel, {perfilPadrao} from "./modules/perfil/perfil.model.ts"
 import HabilidadeModel, {habilidadesPadrao} from "./modules/habilidades/habilidades.model.ts"
+import LinksModel, {LinksPadrao} from "./modules/links/links.model.ts"
 
 const port = process.env.PORT
 
@@ -20,6 +21,12 @@ const initServer = async () => {
 
     if (quantidadeHabilidades === 0) {
         await HabilidadeModel.insertMany(habilidadesPadrao)
+    }
+
+    const quantidadeLinks = await LinksModel.countDocuments()
+
+    if (quantidadeLinks === 0) {
+        await LinksModel.insertMany(LinksPadrao)
     }
 
     app.listen(port, () => {
