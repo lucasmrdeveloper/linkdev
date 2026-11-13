@@ -4,7 +4,8 @@ import LinksModel from "./links.model"
 import { 
     buscarLinksService,
     criarLinkService,
-    editarLinkService
+    editarLinkService,
+    excluirLinkService
 } from "./links.service"
 
 const dadosLinkValidos = (dados: unknown) => {
@@ -89,7 +90,15 @@ export const editarLink = async (req: Request, res: Response) => {
 }
 
 export const excluirLink = async (req: Request, res: Response) => {
-    const link = await LinksModel.findByIdAndDelete(req.params.id)
+    const id = req.params.id
+
+    if (typeof id !== "string") {
+        return res.status(400).json({
+            mensagem: "ID Inválido"
+        })
+    }
+
+    const link = await excluirLinkService(id)
     
     if (!link) {
         return res.status(404).json({ mensagem: "O id não foi encontrado" })

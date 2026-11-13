@@ -12,3 +12,6 @@ export const editarLinkService = async (id: string, atualizacoes: Partial<Link>)
         { new: true, runValidators: true }
     )
 }
+
+export const excluirLinkService = async (id: string) => 
+    await LinksModel.findByIdAndDelete(id)
