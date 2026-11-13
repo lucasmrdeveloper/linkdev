@@ -1,7 +1,7 @@
 import express from "express"
 import cors from "cors"
 import perfilRoutes from "./modules/perfil/perfil.routes"
-import habilidadesRoutes from "./modules/habilidades.routes"
+import habilidadesRoutes from "./modules/habilidades/habilidades.routes"
 import linksRoutes from "./modules/links.routes"
 
 const app = express()
