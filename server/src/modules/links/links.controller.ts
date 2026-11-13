@@ -67,3 +67,13 @@ export const editarLink = async (req: Request, res: Response) => {
 
     return res.json(link)
 }
+
+export const excluirLink = async (req: Request, res: Response) => {
+    const link = await LinksModel.findByIdAndDelete(req.params.id)
+    
+    if (!link) {
+        return res.status(404).json({ mensagem: "O id não foi encontrado" })
+    }
+    
+    return res.status(204).send()
+}
