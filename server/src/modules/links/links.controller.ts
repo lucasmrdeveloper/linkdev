@@ -1,9 +1,13 @@
 import { Request, Response } from "express"
 import LinksModel from "./links.model"
 
+import { 
+    buscarLinksService
+} from "./links.service"
+
 export const buscarLinks = async (_req: Request, res: Response) => {
-    const links = await LinksModel.find()
-    
+    const links = await buscarLinksService()
+
     if (!links) {
         res.status(404).json({ mensagem: "Não existe nenhum link."})
     }
