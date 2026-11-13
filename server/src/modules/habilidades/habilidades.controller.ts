@@ -1,5 +1,4 @@
 import type { Request, Response } from "express"
-import HabilidadeModel from "./habilidades.model"
 
 import { 
     buscarHabilidadesService,
