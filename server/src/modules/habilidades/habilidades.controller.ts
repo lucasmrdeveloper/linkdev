@@ -28,3 +28,15 @@ export const criarHabilidades = async (req: Request, res: Response) => {
 
     return res.status(201).json(habilidade)
 }
+
+export const excluirHabilidades = async (req: Request, res: Response) => {
+    const habilidade = await HabilidadeModel.findByIdAndDelete(req.params.id)
+    
+    if (!habilidade) {
+        return res.status(404).json({
+            mensagem: "Habilidade não encontrada"
+        })
+    }
+
+    return res.status(204).send()
+}
