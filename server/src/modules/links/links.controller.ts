@@ -42,14 +42,27 @@ export const criarLink = async (req: Request, res: Response) => {
 }
 
 export const editarLink = async (req: Request, res: Response) => {
+    const id = req.params.id
+
+    if (typeof id !== "string") {
+        return res.status(400).json({
+            mensagem: "ID inválido"
+        })
+    }
+
+    const dados = req.body
+
+    if (typeof dados !== "object" || dados === null) {
+        return res.status(400).json({
+            mensagem: "Envie os campos para atualizar"
+        })
+    }
+
     const camposPermitidos = ["icone", "nome", "descricao", "url"] as const
     const atualizacoes: Record<string, string> = {}
     
     for (const campo of camposPermitidos) {
-        console.log("campo", campo)
-
         if (campo in req.body) {
-            console.log("1 if", campo)
             if (typeof req.body[campo] !== "string") {
                 return res.status(400).json({
                     mensagem: `${campo} precisa ser uma string`
@@ -57,10 +70,8 @@ export const editarLink = async (req: Request, res: Response) => {
             }
 
             atualizacoes[campo] = req.body[campo]
-            console.log("atualizacoes", atualizacoes)
         }
     }
-
 
     if (Object.keys(atualizacoes).length === 0) {
         return res.status(400).json({
@@ -68,13 +79,13 @@ export const editarLink = async (req: Request, res: Response) => {
         })
     }
 
-    const link = await editarLinkService(req.params.id, atualizacoes)
+    const link = await editarLinkService(id, atualizacoes)
 
     if (!link) {
         return res.status(404).json({ mensagem: "Link não encontrado" })
     }
 
-    return res.json(link)
+    return res.json(link) 
 }
 
 export const excluirLink = async (req: Request, res: Response) => {
