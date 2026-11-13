@@ -1,5 +1,4 @@
 import { Router } from "express"
-import LinksModel from "./links.model"
 
 import { 
     buscarLinks,
