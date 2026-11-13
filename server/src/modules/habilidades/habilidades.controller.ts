@@ -1,8 +1,12 @@
 import type { Request, Response } from "express"
 import HabilidadeModel from "./habilidades.model"
 
+import { 
+    buscarHabilidadesService 
+} from "./habilidades.service"
+
 export const buscarHabilidades = async (_req: Request, res: Response) => {
-    const habilidades = await HabilidadeModel.find()
+    const habilidades = await buscarHabilidadesService()
 
     if (!habilidades) {
         return res.status(404).json({
