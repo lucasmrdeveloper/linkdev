@@ -1,5 +1,4 @@
 import { Request, Response } from "express"
-import LinksModel from "./links.model"
 
 import { 
     buscarLinksService,
