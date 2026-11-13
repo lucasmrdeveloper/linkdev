@@ -2,8 +2,8 @@ import type { Request, Response } from "express"
 
 import { 
     buscarHabilidadesService,
-    criarHabilidadesService,
-    excluirHabilidadesService 
+    criarHabilidadeService,
+    excluirHabilidadeService 
 } from "./habilidades.service"
 
 export const buscarHabilidades = async (_req: Request, res: Response) => {
@@ -12,7 +12,7 @@ export const buscarHabilidades = async (_req: Request, res: Response) => {
     return res.json(habilidades)
 }
 
-export const criarHabilidades = async (req: Request, res: Response) => {
+export const criarHabilidade = async (req: Request, res: Response) => {
     const { nome } = req.body
 
     if ( typeof nome !== "string" ) {
@@ -21,11 +21,11 @@ export const criarHabilidades = async (req: Request, res: Response) => {
         })
     }
 
-    const habilidade = await criarHabilidadesService(req.body)
+    const habilidade = await criarHabilidadeService(req.body)
     return res.status(201).json(habilidade)
 }
 
-export const excluirHabilidades = async (req: Request, res: Response) => {
+export const excluirHabilidade = async (req: Request, res: Response) => {
     const id = req.params.id
 
     if (typeof id !== "string") {
@@ -34,7 +34,7 @@ export const excluirHabilidades = async (req: Request, res: Response) => {
         })
     } 
 
-    const habilidade = await excluirHabilidadesService(id)
+    const habilidade = await excluirHabilidadeService(id)
 
     if (!habilidade) {
         return res.status(404).json({

@@ -6,8 +6,8 @@ type dadoHabilidade = {
 
 export const buscarHabilidadesService = async () => await HabilidadeModel.find()
 
-export const criarHabilidadesService = async (dados: dadoHabilidade) => 
+export const criarHabilidadeService = async (dados: dadoHabilidade) => 
     await HabilidadeModel.create(dados) 
 
-export const excluirHabilidadesService = async (id: string) => 
+export const excluirHabilidadeService = async (id: string) => 
     await HabilidadeModel.findByIdAndDelete(id)
