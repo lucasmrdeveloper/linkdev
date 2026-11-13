@@ -3,7 +3,8 @@ import HabilidadeModel from "./habilidades.model"
 
 import { 
     buscarHabilidadesService,
-    criarHabilidadesService 
+    criarHabilidadesService,
+    excluirHabilidadesService 
 } from "./habilidades.service"
 
 export const buscarHabilidades = async (_req: Request, res: Response) => {
@@ -32,8 +33,16 @@ export const criarHabilidades = async (req: Request, res: Response) => {
 }
 
 export const excluirHabilidades = async (req: Request, res: Response) => {
-    const habilidade = await HabilidadeModel.findByIdAndDelete(req.params.id)
-    
+    const id = req.params.id
+
+    if (typeof id !== "string") {
+        return res.status(400).json({ 
+            mensagem: "ID Inválido" 
+        })
+    } 
+
+    const habilidade = await excluirHabilidadesService(id)
+
     if (!habilidade) {
         return res.status(404).json({
             mensagem: "Habilidade não encontrada"
