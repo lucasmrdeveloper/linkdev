@@ -1,5 +1,4 @@
 import type { Request, Response } from "express"
-import PerfilModel from "./perfil.model"
 
 import { 
     buscarPerfilService,
@@ -22,7 +21,6 @@ const dadosPerfilValidos = (dados: unknown): dados is DadosPerfil => {
         typeof dados.biografia === "string"
     )
 }
-
 
 export const buscarPerfil = async (_req: Request, res: Response) => {
     const perfil = await buscarPerfilService()
