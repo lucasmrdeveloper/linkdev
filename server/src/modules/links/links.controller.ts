@@ -31,7 +31,9 @@ export const buscarLinks = async (_req: Request, res: Response) => {
 
 export const criarLink = async (req: Request, res: Response) => {
     if (!dadosLinkValidos(req.body)) {
-        return res.status(400).json({ mensagem: "Envie os campos válidos" })
+        return res.status(400).json({ 
+            mensagem: "Envie os campos válidos" 
+        })
     } 
 
     const link = await criarLinkService(req.body)
