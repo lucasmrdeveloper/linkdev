@@ -6,6 +6,23 @@ import {
     criarLinkService
 } from "./links.service"
 
+const dadosLinkValidos = (dados: unknown) => {
+    if (typeof dados !== "object" || dados === null) {
+        return false
+    }
+
+    return (
+        "icone" in dados &&
+        typeof dados.icone === "string" &&
+        "nome" in dados &&
+        typeof dados.nome === "string" &&
+        "descricao" in dados &&
+        typeof dados.descricao === "string" &&
+        "url" in dados &&
+        typeof dados.url === "string"
+    )
+}
+
 export const buscarLinks = async (_req: Request, res: Response) => {
     const links = await buscarLinksService()
 
@@ -13,19 +30,12 @@ export const buscarLinks = async (_req: Request, res: Response) => {
 }
 
 export const criarLink = async (req: Request, res: Response) => {
-    const { icone, nome, descricao, url } = req.body
-    
-    if (
-        typeof icone !== "string" ||
-        typeof nome !== "string" ||
-        typeof descricao !== "string" ||
-        typeof url !== "string"
-    ) {
-        return res.status(400).json({ mensagem: "icone, descricao e url precisam ser strings" })
-    }
+    if (!dadosLinkValidos(req.body)) {
+        return res.status(400).json({ mensagem: "Envie os campos válidos" })
+    } 
 
-    const link = criarLinkService(req.body)
-    return res.status(200).json({link})
+    const link = await criarLinkService(req.body)
+    return res.status(201).json(link)
 }
 
 export const editarLink = async (req: Request, res: Response) => {
