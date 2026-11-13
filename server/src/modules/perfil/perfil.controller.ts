@@ -1,8 +1,12 @@
 import type { Request, Response } from "express"
 import PerfilModel from "./perfil.model"
 
+import { 
+    buscarPerfilService 
+} from "./perfil.service"
+
 export const buscarPerfil = async (_req: Request, res: Response) => {
-    const perfil = await PerfilModel.findOne()
+    const perfil = await buscarPerfilService()
     
     if (!perfil) {
         return res.status(404).json({
