@@ -1,17 +1,13 @@
 import { Router } from "express"
 import LinksModel from "./links.model"
 
+import { 
+    buscarLinks
+} from "./links.controller"
+
 const linksRoutes = Router()
 
-linksRoutes.get("/", async (_, res) => {
-    const links = await LinksModel.find()
-
-    if (!links) {
-        res.status(404).json({ mensagem: "Não existe nenhum link."})
-    }
-
-    return res.json(links)
-})
+linksRoutes.get("/", buscarLinks)
 
 linksRoutes.patch("/:id", async (req, res) => {
     const camposPermitidos = ["icone", "nome", "descricao", "url"] as const
