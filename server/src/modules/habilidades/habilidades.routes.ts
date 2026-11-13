@@ -1,5 +1,4 @@
 import { Router } from "express"
-import HabilidadeModel from "./habilidades.model"
 
 import { 
     buscarHabilidades, 
