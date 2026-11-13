@@ -7,12 +7,7 @@ type Habilidade = {
 export const habilidadesPadrao: Habilidade[] = [
     { nome: "JavaScript" },
     { nome: "TypeScript" },
-    { nome: "React" },
-    { nome: "Node.js" },
-    { nome: "HTML" },
-    { nome: "CSS" },
-    { nome: "Git" },
-    { nome: "APIs REST" }
+    { nome: "React" }
 ]
 
 const habilidadeSchema = new Schema<Habilidade>({
