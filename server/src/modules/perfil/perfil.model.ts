@@ -1,6 +1,5 @@
 import { model, Schema, Types } from "mongoose"
 
-// tipar os campos de perfil, qual tipo de dados eles serão permitidos receber
 type Perfil = {
     nome: string,
     especialidade: string,
