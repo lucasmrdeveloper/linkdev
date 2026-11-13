@@ -4,6 +4,7 @@ import PerfilModel from "./perfil.model"
 import { 
     buscarPerfilService,
     criarPerfilService,
+    editarPerfilService,
     DadosPerfil
 } from "./perfil.service"
 
@@ -47,27 +48,13 @@ export const criarPerfil = async (req: Request, res: Response) => {
 }
 
 export const editarPerfil = async (req: Request, res: Response) => {
-    const { nome, especialidade, localidade, biografia } = req.body ?? {}
-    
-    if (
-        typeof nome !== "string" ||
-        typeof especialidade !== "string" ||
-        typeof localidade !== "string" ||
-        typeof biografia !== "string"
-    ) {
+    if (!dadosPerfilValidos(req.body)) {
         return res.status(400).json({
             mensagem: "nome, especialidade, localidade e biografia precisam ser strings"
         })
     }
 
-    const perfil = await PerfilModel.findOneAndUpdate(
-        {},
-        { nome, especialidade, localidade, biografia },
-        {
-            new: true,
-            runValidators: true
-        }
-    )
+    const perfil = editarPerfilService(req.body) 
 
     if (!perfil) {
         return res.status(404).json({
@@ -75,5 +62,5 @@ export const editarPerfil = async (req: Request, res: Response) => {
         })
     }
 
-    return res.json(perfil)
+    return res.json(perfil) 
 }
