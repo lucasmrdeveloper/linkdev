@@ -3,7 +3,8 @@ import LinksModel from "./links.model"
 
 import { 
     buscarLinksService,
-    criarLinkService
+    criarLinkService,
+    editarLinkService
 } from "./links.service"
 
 const dadosLinkValidos = (dados: unknown) => {
@@ -45,7 +46,10 @@ export const editarLink = async (req: Request, res: Response) => {
     const atualizacoes: Record<string, string> = {}
     
     for (const campo of camposPermitidos) {
+        console.log("campo", campo)
+
         if (campo in req.body) {
+            console.log("1 if", campo)
             if (typeof req.body[campo] !== "string") {
                 return res.status(400).json({
                     mensagem: `${campo} precisa ser uma string`
@@ -53,8 +57,10 @@ export const editarLink = async (req: Request, res: Response) => {
             }
 
             atualizacoes[campo] = req.body[campo]
+            console.log("atualizacoes", atualizacoes)
         }
     }
+
 
     if (Object.keys(atualizacoes).length === 0) {
         return res.status(400).json({
@@ -62,11 +68,7 @@ export const editarLink = async (req: Request, res: Response) => {
         })
     }
 
-    const link = await LinksModel.findByIdAndUpdate(
-        req.params.id,
-        { $set: atualizacoes },
-        { new: true, runValidators: true }
-    )
+    const link = await editarLinkService(req.params.id, atualizacoes)
 
     if (!link) {
         return res.status(404).json({ mensagem: "Link não encontrado" })
