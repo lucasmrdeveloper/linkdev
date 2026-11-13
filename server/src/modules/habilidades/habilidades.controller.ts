@@ -9,12 +9,6 @@ import {
 export const buscarHabilidades = async (_req: Request, res: Response) => {
     const habilidades = await buscarHabilidadesService()
 
-    if (!habilidades) {
-        return res.status(404).json({
-            mensagem: "Habilidades não existem"
-        })
-    }
-
     return res.json(habilidades)
 }
 
