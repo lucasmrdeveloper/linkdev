@@ -82,7 +82,9 @@ export const editarLink = async (req: Request, res: Response) => {
     const link = await editarLinkService(id, atualizacoes)
 
     if (!link) {
-        return res.status(404).json({ mensagem: "Link não encontrado" })
+        return res.status(404).json({ 
+            mensagem: "Link não encontrado" 
+        })
     }
 
     return res.json(link) 
