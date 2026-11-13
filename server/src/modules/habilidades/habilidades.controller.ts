@@ -6,6 +6,15 @@ import {
     excluirHabilidadeService 
 } from "./habilidades.service"
 
+const dadosHabilidadesValidos = (dados: unknown) => {
+    if (typeof dados !== "object" || dados === null) return false
+
+    return (
+        "nome" in dados &&
+        typeof dados.nome === "string"
+    )
+}
+
 export const buscarHabilidades = async (_req: Request, res: Response) => {
     const habilidades = await buscarHabilidadesService()
 
@@ -13,11 +22,9 @@ export const buscarHabilidades = async (_req: Request, res: Response) => {
 }
 
 export const criarHabilidade = async (req: Request, res: Response) => {
-    const { nome } = req.body
-
-    if ( typeof nome !== "string" ) {
+    if (!dadosHabilidadesValidos(req.body)) {
         return res.status(400).json({
-            mensagem: "nome precisa ser uma string"
+            mensagem: "Envie um nome de habilidade válido"
         })
     }
 
