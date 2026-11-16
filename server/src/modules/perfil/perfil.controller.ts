@@ -1,9 +1,11 @@
 import type { Request, Response } from "express"
+import cloudinary from "../../../config/cloudinary"
 
 import { 
     buscarPerfilService,
     criarPerfilService,
     editarPerfilService,
+    atualizarFotoPerfilService,
     DadosPerfil
 } from "./perfil.service"
 
@@ -61,4 +63,45 @@ export const editarPerfil = async (req: Request, res: Response) => {
     }
 
     return res.json(perfil) 
+}
+
+const atualizarFotoPerfil = async (req: Request, res: Response) => {
+    const arquivo = req.file
+
+    if (!arquivo) {
+        return res.status(400).json({
+            mensagem: "Envie uma imagem no campo foto"
+        })
+    }
+
+    const resultado = await new Promise<{
+        secure_url: string
+        public_id: string
+    }>((resolve, reject) => {
+        cloudinary.uploader
+        .upload_stream(
+            { folder: "linkdev/perfis", resource_type: "image" },
+            (erro, resposta) => {
+            if (erro) return reject(erro)
+            if (!resposta) return reject(new Error("O Cloudinary não retornou a imagem."))
+
+            resolve({
+                secure_url: resposta.secure_url,
+                public_id: resposta.public_id
+            })
+            }
+        )
+        .end(arquivo.buffer)
+    })
+
+    const perfil = await atualizarFotoPerfilService(
+        resultado.secure_url,
+        resultado.public_id
+    )
+
+    if (!perfil) {
+        return res.status(404).json({ mensagem: "Perfil não encontrado." })
+    } 
+
+    return res.json(perfil)
 }
