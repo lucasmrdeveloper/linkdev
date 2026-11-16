@@ -1,3 +1,10 @@
+.preview-foto{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    margin-bottom: 10px;
+}
+
 .preview-nome,
 .preview-especialidade{
     margin-bottom: 5px;
