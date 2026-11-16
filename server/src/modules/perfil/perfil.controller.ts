@@ -54,7 +54,7 @@ export const editarPerfil = async (req: Request, res: Response) => {
         })
     }
 
-    const perfil = editarPerfilService(req.body) 
+    const perfil = await editarPerfilService(req.body) 
 
     if (!perfil) {
         return res.status(404).json({
