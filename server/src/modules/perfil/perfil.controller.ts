@@ -65,7 +65,7 @@ export const editarPerfil = async (req: Request, res: Response) => {
     return res.json(perfil) 
 }
 
-const atualizarFotoPerfil = async (req: Request, res: Response) => {
+export const atualizarFotoPerfil = async (req: Request, res: Response) => {
     const arquivo = req.file
 
     if (!arquivo) {
