@@ -1,5 +1,5 @@
-import app from "./app"
 import "dotenv/config"
+import app from "./app"
 import connectDB from ".././config/database.ts"
 import PerfilModel, {perfilPadrao} from "./modules/perfil/perfil.model.ts"
 import HabilidadeModel, {habilidadesPadrao} from "./modules/habilidades/habilidades.model.ts"
