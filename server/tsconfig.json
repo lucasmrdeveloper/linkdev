@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "types": ["node", "multer"],
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*.ts", "config/**/*.ts"]
+}
