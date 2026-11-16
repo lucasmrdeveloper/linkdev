@@ -1,18 +1,14 @@
-import { useBuscarPerfil } from "../../perfil/hooks/useBuscarPerfil"
-
 import { useHandleBreakpoints } from "../hooks/useHandleBreakpoints"
 import BreakpointsPreview from "./BreakpointsPreview"
 import PerfilPreview from "./PerfilPreview"
 import HabilidadesPreview from "./HabilidadesPreview"
 import LinksPreview from "./LinksPreview"
 
-import { useRef, type MouseEvent } from "react"
+import { useRef } from "react"
 
 import "../styles/Preview.css"
 
 const Preview = () => {
-    const { carregamentoPerfil, erro } = useBuscarPerfil()
-
     const boxRef = useRef<HTMLDivElement>(null)
     const handleBreakpoints = useHandleBreakpoints(boxRef)
 
