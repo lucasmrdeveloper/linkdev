@@ -13,7 +13,7 @@ export const useBuscarLinks = () => {
                 setLinksAPI(links)
             }
             catch (error) {
-                throw new Error("Houve um erro:", error)
+                throw new Error("Houve um erro:", { cause: error })
             }
         }
  

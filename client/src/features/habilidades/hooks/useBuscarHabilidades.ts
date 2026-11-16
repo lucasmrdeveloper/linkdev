@@ -19,7 +19,7 @@ export const useBuscarHabilidades = () => {
                 ) 
             }
             catch(error) {
-                throw new Error("Houve um erro:", error)
+                throw new Error("Houve um erro:", { cause: error })
             }
         }
     
