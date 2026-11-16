@@ -7,7 +7,7 @@ type HabilidadeApi = {
     nome: string
 }
 
-export const criarHabilidade = async (habilidades)=> {
+export const criarHabilidade = async (habilidades: Habilidade)=> {
     const resposta = await fetch(API_URL, {
         method: "POST",
 
