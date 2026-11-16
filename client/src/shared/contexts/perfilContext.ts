@@ -5,6 +5,7 @@ export type Perfil = {
     especialidade: string
     localidade: string
     biografia: string
+    fotoURL?: string
 }
 
 export type FotoPerfil = File | null
