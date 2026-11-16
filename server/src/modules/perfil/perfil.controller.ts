@@ -74,6 +74,8 @@ export const atualizarFotoPerfil = async (req: Request, res: Response) => {
         })
     }
 
+    const perfilAnterior = await buscarPerfilService()
+
     const resultado = await new Promise<{
         secure_url: string
         public_id: string
@@ -102,6 +104,13 @@ export const atualizarFotoPerfil = async (req: Request, res: Response) => {
     if (!perfil) {
         return res.status(404).json({ mensagem: "Perfil não encontrado." })
     } 
+
+    if (
+        perfilAnterior?.fotoPublic &&
+        perfilAnterior.fotoPublic !== resultado.public_id
+    ) {
+        await cloudinary.uploader.destroy(perfilAnterior.fotoPublic)
+    }
 
     return res.json(perfil)
 }
