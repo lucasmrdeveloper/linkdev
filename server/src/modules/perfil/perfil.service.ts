@@ -25,12 +25,12 @@ export const editarPerfilService = async (dados: DadosPerfil) => {
 
 export const atualizarFotoPerfilService = async (
     fotoURL: string,
-    fotoPublicId: string
+    fotoPublic: string
 ) => {
     return await PerfilModel.findOneAndUpdate(
         {},
         {
-            $set: { fotoURL, fotoPublicId }
+            $set: { fotoURL, fotoPublic }
         },
         {
             new: true,
