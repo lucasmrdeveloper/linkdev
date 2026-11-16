@@ -15,7 +15,7 @@ export const criarPerfilService = async (dados: DadosPerfil) =>
 export const editarPerfilService = async (dados: DadosPerfil) => {
     return await PerfilModel.findOneAndUpdate(
         {},
-        { dados },
+        { $set: dados },
         {
             new: true,
             runValidators: true
