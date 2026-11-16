@@ -13,7 +13,7 @@ export const criarPerfilService = async (dados: DadosPerfil) =>
     await PerfilModel.create(dados)
 
 export const editarPerfilService = async (dados: DadosPerfil) => {
-    await PerfilModel.findOneAndUpdate(
+    return await PerfilModel.findOneAndUpdate(
         {},
         { dados },
         {
