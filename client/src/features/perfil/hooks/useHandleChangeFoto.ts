@@ -10,11 +10,11 @@ import usePerfilContexto from "./usePerfilContexto"
 export const useHandleChangeFoto = (
     setPreview: Dispatch<SetStateAction<string>>
 ) => {
-    const { fotoPerfil, setFotoPerfil } = usePerfilContexto()
+    const { fotoPerfil, setFotoPerfil, perfilAPI } = usePerfilContexto()
 
     useEffect(() => {
         if (!fotoPerfil) {
-            setPreview("/user.png")
+            setPreview(perfilAPI.fotoURL ?? "/user.png")
             return
         }
 
@@ -22,7 +22,7 @@ export const useHandleChangeFoto = (
         setPreview(url)
 
         return () => URL.revokeObjectURL(url)
-    }, [fotoPerfil]) 
+    }, [fotoPerfil, perfilAPI.fotoURL, setPreview]) 
 
     return (e: ChangeEvent<HTMLInputElement>) => {
         const selecionado = e.target.files?.[0]
