@@ -5,7 +5,7 @@ export const salvarPerfil = async (
     perfil: Perfil, 
     perfilAPI: Perfil,
     fotoPerfil: FotoPerfil
-) => {
+): Promise<Perfil | null> => {
     const perfilFoiAlterado = 
         perfil.nome !== perfilAPI.nome ||
         perfil.especialidade !== perfilAPI.especialidade ||
@@ -19,4 +19,6 @@ export const salvarPerfil = async (
     if (fotoPerfil) {
         await criarFoto(fotoPerfil)
     }
+
+    return null
 }
