@@ -1,10 +1,10 @@
+import { useRef } from "react"
 import { useHandleBreakpoints } from "../hooks/useHandleBreakpoints"
+
 import BreakpointsPreview from "./BreakpointsPreview"
 import PerfilPreview from "./PerfilPreview"
 import HabilidadesPreview from "./HabilidadesPreview"
 import LinksPreview from "./LinksPreview"
-
-import { useRef } from "react"
 
 import "../styles/Preview.css"
 
