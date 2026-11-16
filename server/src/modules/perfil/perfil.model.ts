@@ -1,11 +1,12 @@
-import { model, Schema, Types } from "mongoose"
+import { model, Schema } from "mongoose"
 
 type Perfil = {
     nome: string,
     especialidade: string,
     localidade: string,
     biografia: string,
-    fotoId?: Types.ObjectId
+    fotoURL?: string
+    fotoPublic?: string
 }
 
 export const perfilPadrao: Perfil = {
@@ -32,8 +33,13 @@ const perfilSchema = new Schema<Perfil>({
         type: String, 
         trim: true
     },
-    fotoId: {
-        type: Schema.Types.ObjectId
+    fotoURL: {
+        type: String,
+        trim: true
+    },
+    fotoPublic: {
+        type: String,
+        trim: true
     }
 })
 
