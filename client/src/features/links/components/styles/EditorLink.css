@@ -13,12 +13,6 @@
         width: 25px;
         height: 25px;
     }
-
-    input, textarea{
-        height: max-content;
-        outline: none !important;
-        background-color: #fff;
-    }
 }
 
 .link-coluna{
