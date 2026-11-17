@@ -6,6 +6,8 @@ import { useHandleIcone } from "../hooks/useHandleIcone"
 
 import { iconOptions } from "../utils/icones"
 
+import "./styles/TituloEIconeLink.css"
+
 type Props = {
     indice: number
 }

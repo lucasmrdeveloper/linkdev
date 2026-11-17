@@ -1,0 +1,14 @@
+.link-coluna{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+
+    .link-coluna-icone{
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #e4e4e4;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
