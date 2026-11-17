@@ -33,15 +33,18 @@ const EditorLink = ({ indice }: { indice: number }) => {
             </div>
             
             <div className="link-coluna">
-                <input 
-                    type="text" 
-                    name="nome"
-                    className="link-coluna-nome" 
-                    id="nome" 
-                    placeholder="Nome do link"
-                    value={links[indice].nome} 
-                    onChange={(e) => handleChange(e, indice)}
-                /> 
+                <div>
+                    <label htmlFor="titulo">Título</label>
+                    <input 
+                        type="text" 
+                        name="nome"
+                        className="link-coluna-nome" 
+                        id="titulo" 
+                        placeholder="Nome do link"
+                        value={links[indice].nome} 
+                        onChange={(e) => handleChange(e, indice)}
+                    /> 
+                </div>
 
                 <span className="link-coluna-icone" onClick={() => setMostrarIcones(!mostrarIcones)}>
                     {IconeSelecionado ? <IconeSelecionado size={25}/> : "Ícone" }
