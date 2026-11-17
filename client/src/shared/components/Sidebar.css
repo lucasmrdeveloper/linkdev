@@ -20,25 +20,6 @@
     overflow: auto;
 }
 
-.projeto{
-    padding: 20px;
-    border-radius: 8px;
-    background-color: aliceblue;
-
-    input{
-        border: none;
-        background-color: transparent;
-        padding: 0;
-    }
-}
-
-
-ul{
-    gap: 10px;
-}
-
-
-
 .toast {
     position: fixed;
     right: 1rem;
