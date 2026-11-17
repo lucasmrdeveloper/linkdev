@@ -10,7 +10,12 @@ const Links = () => {
 
     return (
         <div className="box">
-            <button onClick={handleLinkNovo}>Adicionar Link</button>
+            <button 
+                onClick={handleLinkNovo}
+                className="link-adicionar"
+            >
+                    Adicionar Link
+            </button>
 
             <div className="links">
                 {links.map((_, indice) => (
