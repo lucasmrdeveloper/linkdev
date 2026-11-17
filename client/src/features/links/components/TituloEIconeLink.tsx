@@ -41,8 +41,12 @@ const TituloEIconeLink = ({indice}: Props) => {
                 
                 <div>
                     <label htmlFor="">Ícone</label>
-                    <span className="link-coluna-icone" onClick={() => setMostrarIcones(!mostrarIcones)}>
-                        {IconeSelecionado ? <IconeSelecionado size={25}/> : "Ícone" }
+                    <span 
+                        className="link-coluna-icone" 
+                        onClick={() => setMostrarIcones(!mostrarIcones)}>
+                        {IconeSelecionado 
+                            ? <IconeSelecionado size={25}/> 
+                            : "Ícone"}
                     </span> 
                 </div>
             </div>
