@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react"
 
-import "./Aba.css"
+import "./styles/Aba.css"
 
 type AbaProps = {
     titulo: string
@@ -14,9 +14,9 @@ const Aba = ({ titulo, icone, children }: AbaProps) => {
     return (
         <>
             <div className="aba" onClick={() => setAberto(!aberto)}>
-                <div>
-                    <img src={icone} alt="" />
-                    <h2>{titulo}</h2>
+                <div className="aba-cabecalho">
+                    <img src={icone} className="aba-cabecalho-icone" alt="Ícone de perfil" />
+                    <h2 className="aba-cabecalho-titulo">{titulo}</h2>
                 </div>
 
                 <img src="/seta-abrir.svg" alt="Seta" />
