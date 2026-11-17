@@ -17,8 +17,8 @@ const AbaLink = ({ indice }: { indice: number }) => {
     )?.Icon
 
     return(
-        <div className="link-aba-box" onClick={() => setAberto(!aberto)}>
-            <div className="link-aba">
+        <div className="link-aba-box">
+            <div className="link-aba" onClick={() => setAberto(!aberto)}>
                 {IconeSelecionado ? <IconeSelecionado size={25}/> : "Ícone"}
 
                 <span className="link-aba-titulo">
