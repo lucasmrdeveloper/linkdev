@@ -1,20 +1,19 @@
 import { useHandleSalvar } from "../hooks/useHandleSalvar.ts"
-import "./SidebarButton.css"
 
+import "./styles/SidebarButton.css"
 
 const SidebarButton = () => {
     const { mensagem, salvando, handleSalvar } = useHandleSalvar()
 
     return (
-        <div className="sidebar-button">
-            
+        <div className="sidebar-salvar">
             {mensagem && (
                 <p className={`mensagem mensagem-${mensagem.tipo}`}>
                     {mensagem.mensagem}
                 </p>
             )}
 
-            <button onClick={handleSalvar} disabled={salvando}>
+            <button onClick={handleSalvar} className="sidebar-salvar-btn" disabled={salvando}>
                 {salvando ? "Salvando..." : "Salvar"}
             </button>
         </div>
