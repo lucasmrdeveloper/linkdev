@@ -20,11 +20,19 @@ const EditorLink = ({ indice }: { indice: number }) => {
  
     return(
         <div className="link">
+             <div>
+                <label htmlFor="url">URL do link</label>
+                <input
+                    id="url"
+                    type="url" 
+                    name="url"
+                    placeholder="Url do link"
+                    value={links[indice].url}
+                    onChange={(e) => handleChange(e, indice)}
+                />
+            </div>
+            
             <div className="link-coluna">
-                <span className="link-coluna-icone" onClick={() => setMostrarIcones(!mostrarIcones)}>
-                    {IconeSelecionado ? <IconeSelecionado size={25}/> : "Ícone" }
-                </span>
-
                 <input 
                     type="text" 
                     name="nome"
@@ -34,8 +42,10 @@ const EditorLink = ({ indice }: { indice: number }) => {
                     value={links[indice].nome} 
                     onChange={(e) => handleChange(e, indice)}
                 /> 
-                
-                <img className="link-excluir" src="/lixeira.svg" alt="" onClick={() => handleExcluir(indice)}/> 
+
+                <span className="link-coluna-icone" onClick={() => setMostrarIcones(!mostrarIcones)}>
+                    {IconeSelecionado ? <IconeSelecionado size={25}/> : "Ícone" }
+                </span> 
             </div>
 
             {mostrarIcones && (
@@ -63,17 +73,7 @@ const EditorLink = ({ indice }: { indice: number }) => {
                 </textarea>
             </div>
 
-            <div>
-                <label htmlFor="url">URL do link</label>
-                <input
-                    id="url"
-                    type="url" 
-                    name="url"
-                    placeholder="Url do link"
-                    value={links[indice].url}
-                    onChange={(e) => handleChange(e, indice)}
-                />
-            </div>
+            <img className="link-excluir" src="/lixeira.svg" alt="" onClick={() => handleExcluir(indice)}/>
         </div>
     )
 }   
