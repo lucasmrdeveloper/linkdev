@@ -1,7 +1,5 @@
-// Hook
 import { useState, type ReactNode } from "react"
 
-// CSS
 import "./Aba.css"
 
 type AbaProps = {
