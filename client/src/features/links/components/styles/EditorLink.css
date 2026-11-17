@@ -11,7 +11,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 
     .link-excluir{
         right: 20px;
