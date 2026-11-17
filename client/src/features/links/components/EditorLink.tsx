@@ -4,6 +4,9 @@ import { useHandleIcone } from "../hooks/useHandleIcone"
 import { useHandleChange } from "../hooks/useHandleChange"
 import { useHandleExcluir } from "../hooks/useHandleExcluir"
 import { iconOptions } from "../utils/icones"
+
+import UrlLink from "./UrlLink"
+
 import "./styles/EditorLink.css"
 
 const EditorLink = ({ indice }: { indice: number }) => {
@@ -20,17 +23,7 @@ const EditorLink = ({ indice }: { indice: number }) => {
  
     return(
         <div className="link">
-             <div>
-                <label htmlFor="url">URL</label>
-                <input
-                    id="url"
-                    type="url" 
-                    name="url"
-                    placeholder="Url do link"
-                    value={links[indice].url}
-                    onChange={(e) => handleChange(e, indice)}
-                />
-            </div>
+            <UrlLink indice={indice}/>
             
             <div className="link-coluna">
                 <div>
