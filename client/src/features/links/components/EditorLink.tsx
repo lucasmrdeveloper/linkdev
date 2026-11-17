@@ -21,7 +21,7 @@ const EditorLink = ({ indice }: { indice: number }) => {
     return(
         <div className="link">
              <div>
-                <label htmlFor="url">URL do link</label>
+                <label htmlFor="url">URL</label>
                 <input
                     id="url"
                     type="url" 
