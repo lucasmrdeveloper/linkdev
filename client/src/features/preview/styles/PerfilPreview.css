@@ -10,6 +10,10 @@
     margin-bottom: 5px;
 }
 
+.preview-especialidade{
+    font-weight: 100;
+}
+
 .preview-localizacao{
     display: flex; 
     gap: 5px; 
