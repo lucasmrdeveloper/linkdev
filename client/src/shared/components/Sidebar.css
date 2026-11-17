@@ -7,8 +7,10 @@
     flex-shrink: 0;
     position: sticky;
     top: 0;
-    
-
+    z-index: 1;
+    border-right: 1px solid #E4E7EC;
+    box-shadow: 8px 0 18px rgba(16, 24, 40, 0.12);
+   
     .linhas{
         display: flex;
         flex-direction: column;
@@ -19,12 +21,9 @@
 }
 
 .header{
-    background-color: #5039F6;
     padding: 20px;
    
-    h1, p{
-        color: #fff;
-    }
+  
 }
 
 .projeto{
