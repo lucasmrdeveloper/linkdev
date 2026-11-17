@@ -15,6 +15,7 @@ const ListaHabilidade = () => {
                     <img 
                         src="/lixeira.svg" 
                         alt="Ícone de lixeira"
+                        className="lista-habilidade-excluir"
                         onClick={() => handleExcluir(habilidade.id)} 
                     />
                 </li>

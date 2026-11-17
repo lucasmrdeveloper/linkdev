@@ -1,22 +1,19 @@
 .lista-habilidades{
     display: flex;
     flex-wrap: wrap;
-
-    
 }
 
 .lista-habilidade{
-        background-color: #EEF2FF;
-        color: #000;
-        padding: 10px;
-        display: flex;
-        gap: 10px;
-        border-radius: 8px;
-        font-size: 14px;
-        font-weight: 400;
+    border: 1px solid #e4e4e4;
+    color: #000;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
 
-        img{
-            height: 15px;
-            cursor: pointer;
-        }
-    }
+.lista-habilidade-excluir{
+    height: 15px;
+    cursor: pointer;
+}
