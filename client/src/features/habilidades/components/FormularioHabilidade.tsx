@@ -17,7 +17,7 @@ const FormularioHabilidade = () => {
                 required
             />
 
-            <button type="submit">Adicionar</button>
+            <button type="submit" className="form-habilidades-submit">Adicionar</button>
         </form>
     )
 }
