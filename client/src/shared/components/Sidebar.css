@@ -10,14 +10,14 @@
     z-index: 1;
     border-right: 1px solid #E4E7EC;
     box-shadow: 8px 0 18px rgba(16, 24, 40, 0.12);
-   
-    .linhas{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        overflow: auto;
-    }
+}
+
+.sidebar-abas{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    overflow: auto;
 }
 
 .header{

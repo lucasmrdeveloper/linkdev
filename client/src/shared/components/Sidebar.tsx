@@ -21,7 +21,7 @@ const Sidebar = () => {
         <aside className="sidebar">
             <SidebarHeader />
 
-            <div className="linhas">
+            <div className="sidebar-abas">
                 <div>
                     <Aba titulo="Perfil" icone="/usuario.svg">
                         <Perfil />
