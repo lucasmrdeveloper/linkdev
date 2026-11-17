@@ -1,7 +1,6 @@
 import { useLinkContexto } from "../hooks/useLinkContexto"
 import { useHandleLinkNovo } from "../hooks/useHandleLinkNovo"
 
-import EditorLink from "./EditorLink"
 import AbaLink from "./AbaLink"
 
 import "./styles/Links.css"
