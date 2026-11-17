@@ -47,7 +47,7 @@ const EditorLink = ({ indice }: { indice: number }) => {
                 </div>
                 
                 <div>
-                    <label htmlFor="">ícone</label>
+                    <label htmlFor="">Ícone</label>
                     <span className="link-coluna-icone" onClick={() => setMostrarIcones(!mostrarIcones)}>
                         {IconeSelecionado ? <IconeSelecionado size={25}/> : "Ícone" }
                     </span> 
