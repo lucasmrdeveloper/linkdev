@@ -7,7 +7,7 @@ import Perfil from "../../features/perfil/components/Perfil.tsx"
 import Habilidades from "../../features/habilidades/components/Habilidades.tsx"
 import Links from "../../features/links/components/Links.tsx"
 
-import "./Sidebar.css"
+import "./styles/Sidebar.css"
 import { useBuscarLinks } from "../../features/links/hooks/useBuscarLinks.ts"
 import { useBuscarPerfil } from "../../features/perfil/hooks/useBuscarPerfil.ts"
 import { useBuscarHabilidades } from "../../features/habilidades/hooks/useBuscarHabilidades.ts"
