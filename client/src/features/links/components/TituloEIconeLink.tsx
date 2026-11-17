@@ -53,15 +53,19 @@ const TituloEIconeLink = ({indice}: Props) => {
 
             {mostrarIcones && (
                 <div className="link-lista">
-                    {iconOptions.map(({id, Icon}) => (
-                        <div className="link-lista-item">
-                            <Icon 
-                                size={24}  
-                                onClick={() => handleIcone(id, indice)}  
-                                className="link-lista-img"
-                            />
-                        </div>
-                    ))}
+                    <label htmlFor="">Escolha um ícone</label>
+
+                    <div className="link-lista-itens">
+                        {iconOptions.map(({id, Icon}) => (
+                            <div className="link-lista-item">
+                                <Icon 
+                                    size={24}  
+                                    onClick={() => handleIcone(id, indice)}  
+                                    className="link-lista-img"
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             )} 
         </>
