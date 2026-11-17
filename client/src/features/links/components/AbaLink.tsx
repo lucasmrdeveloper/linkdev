@@ -1,10 +1,15 @@
+import { useState } from "react"
 import { useLinkContexto } from "../hooks/useLinkContexto"
+
+import EditorLink from "./EditorLink"
 
 import "./styles/AbaLink.css"
 
 import { iconOptions } from "../utils/icones"
 
 const AbaLink = ({ indice }: { indice: number }) => {
+    const [aberto, setAberto] = useState(false)
+
     const { links } = useLinkContexto() 
  
     const IconeSelecionado = iconOptions.find(
@@ -12,7 +17,7 @@ const AbaLink = ({ indice }: { indice: number }) => {
     )?.Icon
 
     return(
-        <>
+        <div className="link-aba-box" onClick={() => setAberto(!aberto)}>
             <div className="link-aba">
                 {IconeSelecionado ? <IconeSelecionado size={25}/> : "Ícone"}
 
@@ -23,8 +28,10 @@ const AbaLink = ({ indice }: { indice: number }) => {
                     src="/seta-abrir.svg" 
                     alt="Seta" 
                 />
-             </div>
-        </>
+            </div>
+
+            {aberto && <EditorLink indice={indice}/>}
+        </div>
     )
 }   
 
