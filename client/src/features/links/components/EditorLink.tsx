@@ -4,6 +4,7 @@ import { useHandleExcluir } from "../hooks/useHandleExcluir"
 
 import UrlLink from "./UrlLink"
 import TituloEIconeLink from "./TituloEIconeLink"
+import DescricaoLink from "./DescricaoLink"
 
 import "./styles/EditorLink.css"
 
@@ -17,17 +18,7 @@ const EditorLink = ({ indice }: { indice: number }) => {
         <div className="link">
             <UrlLink indice={indice}/>
             <TituloEIconeLink indice={indice}/>
-            
-            <div>
-                <label htmlFor="descricao">Descrição</label>
-                <textarea 
-                    name="descricao" 
-                    id="descricao"
-                    placeholder="Descrição do link"
-                    value={links[indice].descricao}
-                    onChange={(e) => handleChange(e, indice)}>
-                </textarea>
-            </div>
+            <DescricaoLink indice={indice} />
 
             <img className="link-excluir" src="/lixeira.svg" alt="" onClick={() => handleExcluir(indice)}/>
         </div>
