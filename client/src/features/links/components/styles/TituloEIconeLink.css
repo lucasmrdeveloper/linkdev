@@ -12,3 +12,25 @@
         cursor: pointer;
     }
 }
+
+.link-lista{
+    background: #fff;
+    padding: 8px;
+    border: 1px solid #e4e4e48a;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-bottom: 20px;
+    gap: 10px;
+    border-radius: 10px;
+
+    .link-lista-item{
+        background: #F9FAFB;
+        border: 1px solid #e4e4e4ab;
+        cursor: pointer;
+        border-radius: 10px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
