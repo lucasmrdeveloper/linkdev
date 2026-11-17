@@ -2,6 +2,7 @@ import { useLinkContexto } from "../hooks/useLinkContexto"
 import { useHandleLinkNovo } from "../hooks/useHandleLinkNovo"
 
 import EditorLink from "./EditorLink"
+import AbaLink from "./AbaLink"
 
 import "./styles/Links.css"
 
@@ -20,7 +21,7 @@ const Links = () => {
 
             <div className="links">
                 {links.map((_, indice) => (
-                    <EditorLink
+                    <AbaLink
                         indice={indice} 
                     /> 
                 ))}  

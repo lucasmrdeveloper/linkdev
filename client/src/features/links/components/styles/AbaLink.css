@@ -1,0 +1,20 @@
+.link-aba{
+    border: 1px solid #e4e4e4;
+    border-radius: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.link-aba-titulo{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.link-aba-seta{
+    position: absolute;
+    right: 10px;
+}
