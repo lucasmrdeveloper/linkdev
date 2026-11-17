@@ -1,11 +1,10 @@
 .links{
     display: flex;
     flex-direction: column-reverse;
-    gap: 20px;
+    gap: 15px;
 }
 
 .link-adicionar{
-    border: 1px solid red;
     border: none;
     text-align: left;
     color: #5039F6;
