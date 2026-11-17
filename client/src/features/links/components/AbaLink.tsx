@@ -21,7 +21,9 @@ const AbaLink = ({ indice }: { indice: number }) => {
             <div className="link-aba">
                 {IconeSelecionado ? <IconeSelecionado size={25}/> : "Ícone"}
 
-                <span className="link-aba-titulo">{links[indice].nome}</span>
+                <span className="link-aba-titulo">
+                    {links[indice].nome ? links[indice].nome : "Novo Link"}
+                </span>
 
                 <img 
                     className="link-aba-seta" 
