@@ -1,6 +1,8 @@
+import "./styles/SidebarHeader.css"
+
 const SidebarHeader = () => {   
     return (
-        <div className="header">
+        <div className="sidebar-header">
             <h1>Dev Links</h1>
 
             <p>Crie uma página de links</p>
