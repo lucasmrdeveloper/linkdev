@@ -1,0 +1,28 @@
+import { model, Schema } from "mongoose"
+
+type Usuario = {
+    email: string
+    senha: string
+}
+
+const usuarioSchema = new Schema<Usuario>(
+    {
+        email: {
+            type: String,
+            required: true,
+            trim: true,
+            lowercase: true,
+            unique: true
+        },
+        senha: {
+            type: String,
+            required: true,
+            select: false
+        }
+    },
+    { timestamps: true }
+)
+
+const UsuarioModel = model<Usuario>("Usuario", usuarioSchema)
+
+export default UsuarioModel
