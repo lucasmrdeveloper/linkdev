@@ -2,7 +2,7 @@ import { model, Schema } from "mongoose"
 
 type Usuario = {
     email: string
-    senha: string
+    senhaHash: string
 }
 
 const usuarioSchema = new Schema<Usuario>(
@@ -14,7 +14,7 @@ const usuarioSchema = new Schema<Usuario>(
             lowercase: true,
             unique: true
         },
-        senha: {
+        senhaHash: {
             type: String,
             required: true,
             select: false
