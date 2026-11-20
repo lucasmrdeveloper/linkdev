@@ -9,3 +9,17 @@ export const criarUsuarioService = async (email: string, senha: string) => {
         senhaHash
     })
 }
+
+export const autenticarUsuarioService = async (email: string, senha: string) => {
+    const usuario = await UsuarioModel
+        .findOne({ email })
+        .select("+senhaHash")
+
+    if (!usuario) return null
+
+    const senhaCorreta = await bcrypt.compare(senha, usuario.senhaHash)
+
+    if (!senhaCorreta) return null
+
+    return usuario
+}
