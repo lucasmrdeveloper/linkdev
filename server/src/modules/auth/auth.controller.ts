@@ -1,7 +1,8 @@
 import type { Request, Response } from "express"
 import { 
     criarUsuarioService,
-    autenticarUsuarioService 
+    autenticarUsuarioService,
+    buscarUsuarioPorId 
 } from "./auth.service"
 
 import jwt from "jsonwebtoken"
@@ -121,4 +122,25 @@ export const entrar = async (req: Request, res: Response) => {
             id: usuario._id.toString(),
             email: usuario.email
         })
+}
+
+export const obterUsuarioAtual = async (req: Request, res: Response) => {
+    if (!req.usuarioId) {
+        return res.status(401).json({
+            mensagem: "Autenticação necessária."
+        })
+    }
+
+    const usuario = await buscarUsuarioPorId(req.usuarioId)
+
+    if (!usuario) {
+        return res.status(401).json({
+            mensagem: "Usuário não encontrado."
+        })
+    }
+
+    return res.json({
+        id: usuario._id.toString(),
+        email: usuario.email
+    })
 }
