@@ -4,6 +4,8 @@ import {
     autenticarUsuarioService 
 } from "./auth.service"
 
+import jwt from "jsonwebtoken"
+
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const erroDeEmailDuplicado = (error: unknown) =>
@@ -95,8 +97,28 @@ export const entrar = async (req: Request, res: Response) => {
         })
     }
 
-    return res.json({
-        id: usuario._id.toString(),
-        email: usuario.email
-    })
+    const jwtSecret = process.env.JWT_SECRET
+
+    if (!jwtSecret) {
+        throw new Error("JWT_SECRET não foi definida no arquivo .env")
+    }
+
+    const token = jwt.sign(
+        { sub: usuario._id.toString() },
+        jwtSecret,
+        { expiresIn: "1h" }
+    )
+
+    return res
+        .cookie("devlink_token", token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "lax",
+            maxAge: 60 * 60 * 1000,
+            path: "/"
+        })
+        .json({
+            id: usuario._id.toString(),
+            email: usuario.email
+        })
 }
