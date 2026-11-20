@@ -1,6 +1,9 @@
 import bcrypt from "bcryptjs"
 import UsuarioModel from "./usuario.model"
 
+export const buscarUsuarioPorId = async (id: string) => 
+    await UsuarioModel.findById(id) 
+
 export const criarUsuarioService = async (email: string, senha: string) => {
     const senhaHash = await bcrypt.hash(senha, 12)
 
