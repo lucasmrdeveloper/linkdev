@@ -1,5 +1,8 @@
 import type { Request, Response } from "express"
-import { criarUsuarioService } from "./auth.service"
+import { 
+    criarUsuarioService,
+    autenticarUsuarioService 
+} from "./auth.service"
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -66,4 +69,34 @@ export const cadastrar = async (req: Request, res: Response) => {
 
         throw error
     }
+}
+
+export const entrar = async (req: Request, res: Response) => {
+    if (!dadosCadastroValidos(req.body)) {
+        return res.status(400).json({
+            mensagem: "Informe email e senha como textos."
+        })
+    } 
+
+    const { email, senha } = req.body
+    const emailFormatado = emailNormalizado(email)
+
+    if (!emailValido(emailFormatado)) {
+        return res.status(400).json({
+            mensagem: "Informe um email válido."
+        })
+    }
+
+    const usuario = await autenticarUsuarioService(emailFormatado, senha) 
+
+    if (!usuario) {
+        return res.status(401).json({
+            mensagem: "Email ou senha inválidos."
+        })
+    }
+
+    return res.json({
+        id: usuario._id.toString(),
+        email: usuario.email
+    })
 }
