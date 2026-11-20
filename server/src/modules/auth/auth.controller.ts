@@ -1,7 +1,7 @@
 import type { Request, Response } from "express"
 import { criarUsuarioService } from "./auth.service"
 
-const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const erroDeEmailDuplicado = (error: unknown) =>
     typeof error === "object" &&
@@ -9,20 +9,37 @@ const erroDeEmailDuplicado = (error: unknown) =>
     "code" in error &&
     error.code === 11000
 
+const dadosCadastroValidos = (dados: unknown) => {
+    if (typeof dados !== "object" || dados === null) return false
+    
+    return (
+        "email" in dados &&
+        typeof dados.email === "string" &&
+        "senha" in dados &&
+        typeof dados.senha === "string"
+    )
+}
+
+const emailNormalizado = (email: string) => 
+    email.trim().toLowerCase() 
+
+const emailValido = (email: string) => 
+   emailRegex.test(email)
+
+
 export const cadastrar = async (req: Request, res: Response) => {
-    const { email, senha } = req.body
-
-    if (typeof email !== "string" || typeof senha !== "string") {
+    if (!dadosCadastroValidos(req.body)) {
         return res.status(400).json({
-            mensagem: "Informe email e senha como texto."
+            mensagem: "Informe email e senha como textos."
         })
-    }
+    } 
 
-    const emailFormatado = email.trim().toLowerCase() 
+    const { email, senha } = req.body
+    const emailFormatado = emailNormalizado(email)
 
-    if (!emailValido.test(emailFormatado)) {
+    if (!emailValido(emailFormatado)) {
         return res.status(400).json({
-            mensagem: "Informe um email válido"
+            mensagem: "Informe um email válido."
         })
     }
 
