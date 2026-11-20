@@ -1,5 +1,6 @@
 import express from "express"
 import cors from "cors"
+import cookieParser from "cookie-parser"
 
 import perfilRoutes from "./modules/perfil/perfil.routes"
 import habilidadesRoutes from "./modules/habilidades/habilidades.routes"
@@ -10,6 +11,7 @@ const app = express()
 
 app.use(cors({ origin: "http://localhost:5173" }))
 app.use(express.json())
+app.use(cookieParser())
 
 app.use("/api/perfil", perfilRoutes)
 app.use("/api/habilidades", habilidadesRoutes)
